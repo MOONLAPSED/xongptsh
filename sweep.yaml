@@ -7,7 +7,45 @@ rules:
 - "Leftover TODOs in the code should be handled."
 - "All new business logic should have corresponding unit tests in the tests/ directory."
 - "Any clearly inefficient or repeated code should be optimized or refactored."
- 
+- "Consumer hardware limitations [[Hardware Constraints]]"
+- "Scope limited to text files and Markdown [[Plain Text]] (SQLite3 db - BLOBSs will be allowed in the special case of embeddings)"
+- "Command line interfaces for accessibility [[CLI]]"
+- "When printing debug information, consider redirecting all messages to a log file so that logs are saved permanently."
+- "Include docstrings for both your module and any public functions within it so users know what the code does and how to use it."
+- "Rate limiting policies [[Rate Limiting]]"
+- "Implement retries with exponential backoff [[Retries]]"
+- "OpenAPI/Swagger documentation [[Documentation]]"
+- "Loose coupling between modules [[Loose Coupling]]"
+- "Return Codes - see example returncode schema:" 
+return_example = """
+   {
+     "status": "ok",
+     "retcode": 0,
+     "data": {
+       "result": "success"
+     },
+     "echo": "123"
+   }
+   """
+ """
+ Return codes indicate execution status:
+ Code | Meaning
+ 0	Success
+ 1xxxx	Request errors
+ 2xxxx	Handler errors
+ 3xxxx	Execution errors
+ Request Errors
+ Similar to HTTP 4xx client errors.
+ Code	Error	Cause
+ 10001	Bad Request	Malformed request
+ 10002	Unsupported Action	Unimplemented action
+ 10003	Bad Param	Invalid parameter
+ Similar to HTTP 5xx server errors:
+ Code	Error	Cause
+ 20001	Bad Handler	Implementation error
+ 20002	Internal Handler Error	Uncaught exception
+ And more.
+ """
 # This is the branch that Sweep will develop from and make pull requests to. Most people use 'main' or 'master' but some users also use 'dev' or 'staging'.
 branch: 'main'
  
@@ -42,43 +80,3 @@ sandbox:
     - trunk fmt {file_path}
     - trunk check --fix {file_path}
     - pytest (per github actions)
-rules:
-  - Consumer hardware limitations [[Hardware Constraints]]
-  - Scope limited to text files and Markdown [[Plain Text]] (SQLite3 db - BLOBSs will be allowed in the special case of embeddings)
-  - Command line interfaces for accessibility [[CLI]]
-  - When printing debug information, consider redirecting all messages to a log file so that logs are saved permanently.
-  - Include docstrings for both your module and any public functions within it so users know what the code does and how to use it.
-  - Rate limiting policies [[Rate Limiting]]
-  - Implement retries with exponential backoff [[Retries]]
-  - OpenAPI/Swagger documentation [[Documentation]]
-  - Loose coupling between modules [[Loose Coupling]]
-# Return Codes - see example returncode schema: 
-return_example = """
-  {
-    "status": "ok",
-    "retcode": 0,
-    "data": {
-      "result": "success"
-    },
-    "echo": "123"
-  }
-  """
-"""
-Return codes indicate execution status:
-Code | Meaning
-0	Success
-1xxxx	Request errors
-2xxxx	Handler errors
-3xxxx	Execution errors
-Request Errors
-Similar to HTTP 4xx client errors.
-Code	Error	Cause
-10001	Bad Request	Malformed request
-10002	Unsupported Action	Unimplemented action
-10003	Bad Param	Invalid parameter
-Similar to HTTP 5xx server errors:
-Code	Error	Cause
-20001	Bad Handler	Implementation error
-20002	Internal Handler Error	Uncaught exception
-And more.
-"""
