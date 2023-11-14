@@ -10,14 +10,11 @@ docs:
    - PyGitHub: https://pygithub.readthedocs.io/en/latest/
 
 sandbox:
-   install:
-    - pre-commit install
-    - pip install poetry
-    - poetry install
+  install:
+    - trunk init
   check:
-    - pre-commit run --files {file_path}
-    - 'if [[ "{file_path}" == *.py ]]; then poetry run pylint --errors-only {file_path}; else exit 0; fi'
-    - 'if [[ "{file_path}" == *.py ]]; then PYTHONPATH=. poetry run python {file_path}; else exit 0; fi'
+    - trunk fmt {file_path}
+    - trunk check --fix {file_path}
 
 rules:
 - "All docstrings and comments should be up to date."
@@ -28,12 +25,12 @@ rules:
 - "Consumer hardware limitations"
 - "Leftover TODOs in the code should be handled."
 - "Scope limited to text files and Markdown (SQLite3 db - BLOBSs will be allowed in the special case of embeddings)"
-- "Command line interfaces for accessibility [[CLI]]"
+- "Command line interfaces or CLI for accessibility"
 - "When printing debug information, consider redirecting all messages to a log file so that logs are saved permanently."
 - "Rate limiting policies"
 - "Implement retries with exponential backoff"
 - "rapidAPI/Swagger documentation"
 - "Loose coupling between modules"
-- "Consistent with PEP8 style guide [[Style Guide]]"
+- "Consistent with PEP8 style guide"
 - "Return Codes - see example returncode.schema.py"
 - "SQL database - see schema.sql"
