@@ -24,7 +24,6 @@ rules:
 - Any clearly inefficient or repeated code should be optimized or refactored.
 - Consumer hardware limitations
 - Leftover TODOs in the code should be handled.
-- Scope limited to text files and Markdown (SQLite3 db - BLOBSs will be allowed in the special case of embeddings)
 - Command line interfaces or CLI for accessibility
 - When printing debug information, consider redirecting all messages to a log file so that logs are saved permanently.
 - Rate limiting policies
