@@ -5,16 +5,7 @@ This module creates a new SQLite database file, connects to the SQLite database,
 import sqlite3
 
 def create_database(db_name):
-    """
-    This function creates a new SQLite database file and connects to the SQLite database.
-
-    Parameters:
-    db_name (str): The name of the database file to be created.
-
-    Returns:
-    conn: The connection to the SQLite database.
-    cursor: The cursor object to execute SQLite commands.
-    """
+    =======
     # Create a new SQLite database file
     conn = sqlite3.connect(db_name)
 
@@ -46,15 +37,7 @@ cursor.execute('''
 ''')
 
 def create_tables(cursor):
-    """
-    This function creates the necessary tables in the database to represent the relational schema for the Unix file system object.
-
-    Parameters:
-    cursor: The cursor object to execute SQLite commands.
-
-    Returns:
-    None
-    """
+    =======
     # Create the permissions table
     cursor.execute('''
         CREATE TABLE IF NOT EXISTS permissions (
@@ -81,15 +64,7 @@ def create_tables(cursor):
 
 # Insert example data into the files table
 def insert_data(cursor):
-    """
-    This function inserts example data into the tables.
-
-    Parameters:
-    cursor: The cursor object to execute SQLite commands.
-
-    Returns:
-    None
-    """
+    =======
     # Insert example data into the files table
     cursor.execute('''
         INSERT INTO files (name, path, size, created_at, modified_at)
@@ -135,15 +110,7 @@ def insert_data(cursor):
     ''')
 
 def close_connection(conn):
-    """
-    This function commits the changes and closes the connection to the SQLite database.
-
-    Parameters:
-    conn: The connection to the SQLite database.
-
-    Returns:
-    None
-    """
+    =======
     # Commit the changes and close the connection
     conn.commit()
     conn.close()
