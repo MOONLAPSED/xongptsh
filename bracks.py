@@ -20,6 +20,7 @@ def main():
 def process_custom_syntax(text, context):
     """
     This function processes a text string by replacing placeholders with corresponding values from a context dictionary.
+    It iterates over placeholder-value pairs in the context dictionary and replaces placeholders with corresponding values in the text string.
 
     Parameters:
     text (str): The text string to process.
@@ -30,7 +31,6 @@ def process_custom_syntax(text, context):
     """
 =======
 def process_custom_syntax(text, context):
-    """
     # Iterate over placeholder-value pairs in context dictionary
     for placeholder, value in context.items():
         # Replace placeholders with corresponding values in text string
@@ -56,14 +56,14 @@ def test_processing_function(context):  # Pass the context dictionary as an argu
     # Iterate over test cases and compare the processed result with the expected result
     for test_case in test_cases:
     """
-    This function processes a text string with custom syntax by replacing placeholders with corresponding values from a context dictionary.
+    This function tests the processing function by comparing its processed result with an expected result for a list of test cases.
+    It defines a list of test cases with text strings and expected results, then iterates over the test cases and compares the processed result with the expected result.
 
     Parameters:
-    text (str): The text string to process.
     context (dict): The context dictionary with placeholder-value pairs.
 
     Returns:
-    str: The processed text string.
+    None
     """
 =======
 """
@@ -73,6 +73,7 @@ This module provides functions to process text strings by replacing placeholders
 def main():
     """
     This is the main function that creates a context dictionary with placeholder-value pairs, processes a text string by replacing placeholders with corresponding values, and verifies the correctness of the processing function.
+    It creates a dictionary with placeholder-value pairs, processes a text string by replacing placeholders with corresponding values and prints the result, and verifies the correctness of the processing function.
 
     Parameters:
     None
@@ -120,6 +121,15 @@ def test_processing_function(context):  # Pass the context dictionary as an argu
 def test_processing_function(context):
     """
     This function verifies the correctness of the processing function by comparing its processed result with an expected result for a list of test cases.
+    It defines a list of test cases, processes the text string in each test case, compares the processed result with the expected result, and prints the test case status.
+
+    Parameters:
+    context (dict): The context dictionary with placeholder-value pairs.
+
+    Returns:
+    None
+    """
+    This function verifies the correctness of the processing function by comparing its processed result with an expected result for a list of test cases.
 
     Parameters:
     context (dict): The context dictionary with placeholder-value pairs.
@@ -129,7 +139,7 @@ def test_processing_function(context):
     """
 =======
 def test_processing_function(context):  # Pass the context dictionary as an argument
-    # Define list of test cases
+    # Define a list of test cases with text strings and expected results
     test_cases = [
         {
             "text": "This is a {placeholder1} and {placeholder2} example.",
@@ -141,7 +151,7 @@ def test_processing_function(context):  # Pass the context dictionary as an argu
         }
     ]
     
-    # Iterate over test cases
+    # Iterate over test cases and compare the processed result with the expected result
     for test_case in test_cases:
         # Process the text string in the test case
         processed_text = process_custom_syntax(test_case["text"], context)
