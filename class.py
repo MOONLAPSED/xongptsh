@@ -14,12 +14,13 @@ class Entity:
 class Iteration(Entity):
     def __init__(self, name, description):
         super().__init__(name, description)
-    The Iteration class represents an iteration of an entity. It is a subclass of the Entity class and inherits the name and description attributes from the Entity class.
+"""
+The Iteration class represents an iteration of an entity. It is a subclass of the Entity class and inherits the name and description attributes from the Entity class.
 
-    Attributes:
-    name (str): The name of the iteration. Inherited from Entity.
-    description (str): The description of the iteration. Inherited from Entity.
-    """
+Attributes:
+name (str): The name of the iteration. Inherited from Entity.
+description (str): The description of the iteration. Inherited from Entity.
+"""
     def __init__(self, name, description):
         """
         The constructor for the Iteration class. It initializes the name and description attributes using the constructor of the Entity class.
