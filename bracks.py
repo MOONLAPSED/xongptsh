@@ -9,27 +9,9 @@ def main():
     
     # Call testing function
     test_processing_function(context)  # Pass the context dictionary as an argument
-    # Iterate over placeholder-value pairs in context dictionary
-    for placeholder, value in context.items():
-        # Replace placeholders with corresponding values in text string
-        text = text.replace("{" + placeholder + "}", value)
-    
-    # Return the processed text string
-    return text
 
 # Testing function
 def test_processing_function(context):  # Pass the context dictionary as an argument
-def process_custom_syntax(text, context):
-    """
-    This function processes a text string with custom syntax by replacing placeholders with corresponding values from a context dictionary.
-
-    Parameters:
-    text (str): The text string to process.
-    context (dict): The context dictionary with placeholder-value pairs.
-
-    Returns:
-    str: The processed text string.
-    """
 =======
 # Testing function
 def test_processing_function(context):  # Pass the context dictionary as an argument
@@ -60,18 +42,8 @@ def main():
         "placeholder3": "value3"
     }
     
-    # Call processing function and print the processed text string
-    processed_text = process_custom_syntax("This is a {placeholder1} and {placeholder2} example.", context)
-    print(processed_text)
-    
     # Call testing function
     test_processing_function(context)  # Pass the context dictionary as an argument
-    # Iterate over placeholder-value pairs in context dictionary
-    for placeholder, value in context.items():
-        # Replace placeholders with corresponding values in text string
-        text = text.replace("{" + placeholder + "}", value)
-    
-    # Return the processed text string
     return text
 
 # Testing function
@@ -124,8 +96,19 @@ def test_processing_function(context):  # Pass the context dictionary as an argu
             # Print test case status
             print("Test case passed")
         else:
-            print("Test case failed")
-
-# Call main function to execute the code
+    # Define list of test cases
+    test_cases = [
+        {
+            "text": "This is a {placeholder1} and {placeholder2} example.",
+            "expected_result": "This is a value1 and value2 example."
+        },
+        {
+            "text": "Another {placeholder3} example.",
+            "expected_result": "Another value3 example."
+        }
+    ]
+    
+    # Iterate over test cases
+    for test_case in test_cases:
 if __name__ == "__main__":
     main()  
