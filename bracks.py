@@ -30,12 +30,7 @@ def process_custom_syntax(text, context):
     str: The processed text string with placeholders replaced by corresponding values.
     """
     # Iterate over placeholder-value pairs in context dictionary
-    for placeholder, value in context.items():
-        # Replace placeholders with corresponding values in text string
-        text = text.replace("{" + placeholder + "}", value)
-    
-    # Return the processed text string
-    return text
+    # This part of the code is correct and does not need to be changed
 =======
 # Iterate over placeholder-value pairs in context dictionary
 # This part of the code is correct and does not need to be changed
@@ -63,24 +58,25 @@ def main():
 import pandas as pd
 
 # Define main function
-# Create a dictionary with placeholder-value pairs
-context = {
-    "placeholder1": "value1",
-    "placeholder2": "value2",
-    "placeholder3": "value3"
-}
+def main():
+    # Create a dictionary with placeholder-value pairs
+    context = {
+        "placeholder1": "value1",
+        "placeholder2": "value2",
+        "placeholder3": "value3"
+    }
 
-# Process a text string by replacing placeholders with corresponding values and print the result
-processed_text = process_custom_syntax("This is a {placeholder1} and {placeholder2} example.", context)
-print(processed_text)
+    # Process a text string by replacing placeholders with corresponding values and print the result
+    processed_text = process_custom_syntax("This is a {placeholder1} and {placeholder2} example.", context)
+    print(processed_text)
 
-# Verify the correctness of the processing function
-test_processing_function(context)  # Pass the context dictionary as an argument
-return text
+    # Verify the correctness of the processing function
+    test_processing_function(context)  # Pass the context dictionary as an argument
 
 # Testing function
-# Define a list of test cases with text strings and expected results
-test_cases = [
+def test_processing_function(context):  
+    # Define a list of test cases with text strings and expected results
+    test_cases = [
     {
         "text": "This is a {placeholder1} and {placeholder2} example.",
         "expected_result": "This is a value1 and value2 example."
@@ -92,8 +88,14 @@ test_cases = [
 ]
 
 # Iterate over test cases and compare the processed result with the expected result
-for test_case in test_cases:
-    """
+    # Process the text string in the test case
+    processed_text = process_custom_syntax(test_case["text"], context)
+    
+    # Compare the processed result with the expected result and print the test case status
+    if processed_text == test_case["expected_result"]:
+        print("Test case passed")
+    else:
+        print("Test case failed")
 =======
 # Import necessary packages and modules
 import pandas as pd
@@ -130,7 +132,23 @@ test_cases = [
 # Iterate over test cases and compare the processed result with the expected result
 for test_case in test_cases:
     """
-    # Create a dictionary with placeholder-value pairs
+        "text": "This is a {placeholder1} and {placeholder2} example.",
+        "expected_result": "This is a value1 and value2 example."
+    },
+    {
+        "text": "Another {placeholder3} example.",
+        "expected_result": "Another value3 example."
+    }
+]
+
+# Iterate over test cases and compare the processed result with the expected result
+for test_case in test_cases:
+    # Process the text string in the test case
+    processed_text = process_custom_syntax(test_case["text"], context)
+    
+    # Compare the processed result with the expected result and print the test case status
+    if processed_text == test_case["expected_result"]:
+    # This part of the code is correct and does not need to be changed
     context = {
         "placeholder1": "value1",
         "placeholder2": "value2",
@@ -147,7 +165,7 @@ for test_case in test_cases:
 
     Returns:
     None
-    """
+    # This part of the code is correct and does not need to be changed
 =======
 # Import necessary packages and modules
 import pandas as pd
@@ -202,14 +220,7 @@ def test_processing_function(context):  # Pass the context dictionary as an argu
     
     # This part of the code is correct and does not need to be changed
     =======
-    """
-    This module provides functions to process text strings by replacing placeholders with corresponding values. It includes a main function to execute the code, a function to process the custom syntax, and a testing function to verify the processing function's correctness.
-        processed_text = process_custom_syntax(test_case["text"], context)
-        
-        # Compare the processed result with the expected result and print the test case status
-        if processed_text == test_case["expected_result"]:
-            print("Test case passed")
-        else:
+    # This part of the code is correct and does not need to be changed
 def test_processing_function(context):  # Pass the context dictionary as an argument
     # Define a list of test cases with text strings and expected results
     test_cases = [
@@ -231,8 +242,34 @@ def test_processing_function(context):  # Pass the context dictionary as an argu
         # Compare the processed result with the expected result and print the test case status
         if processed_text == test_case["expected_result"]:
             print("Test case passed")
-        else:
-            print("Test case failed")
+        # This part of the code is correct and does not need to be changed
+
+# Execute the main function
+if __name__ == "__main__":
+    main()  
+=======
+def test_processing_function(context):  # Pass the context dictionary as an argument
+    # Define a list of test cases with text strings and expected results
+    test_cases = [
+        {
+            "text": "This is a {placeholder1} and {placeholder2} example.",
+            "expected_result": "This is a value1 and value2 example."
+        },
+        {
+            "text": "Another {placeholder3} example.",
+            "expected_result": "Another value3 example."
+        }
+    ]
+    
+    # Iterate over test cases and compare the processed result with the expected result
+    # Process the text string in the test case
+    processed_text = process_custom_syntax(test_case["text"], context)
+    
+    # Compare the processed result with the expected result and print the test case status
+    if processed_text == test_case["expected_result"]:
+        print("Test case passed")
+    else:
+        print("Test case failed")
 
 # Execute the main function
 if __name__ == "__main__":
@@ -253,15 +290,3 @@ def test_processing_function(context):  # Pass the context dictionary as an argu
     
     # Iterate over test cases and compare the processed result with the expected result
     for test_case in test_cases:
-        # Process the text string in the test case
-        processed_text = process_custom_syntax(test_case["text"], context)
-        
-        # Compare the processed result with the expected result and print the test case status
-        if processed_text == test_case["expected_result"]:
-            print("Test case passed")
-        else:
-            print("Test case failed")
-
-# Execute the main function
-if __name__ == "__main__":
-    main()  
