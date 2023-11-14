@@ -29,6 +29,7 @@ rules:
 - "When printing debug information, consider redirecting all messages to a log file so that logs are saved permanently."
 - "Rate limiting policies"
 - "Implement retries with exponential backoff"
+- "Consistent with PEP8 style guide"
 - "rapidAPI/Swagger documentation"
 - "Loose coupling between modules"
 - "Consistent with PEP8 style guide"
