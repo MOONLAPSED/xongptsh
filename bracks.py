@@ -9,9 +9,6 @@ def main():
     
     # Call testing function
     test_processing_function(context)  # Pass the context dictionary as an argument
-
-# Testing function
-def test_processing_function(context):  # Pass the context dictionary as an argument
 =======
 # Testing function
 def test_processing_function(context):  # Pass the context dictionary as an argument
@@ -62,7 +59,6 @@ def test_processing_function(context):  # Pass the context dictionary as an argu
     
     # Iterate over test cases
     for test_case in test_cases:
-def test_processing_function(context):
     """
     This function tests the processing function by comparing its processed result with an expected result for a list of test cases.
 
