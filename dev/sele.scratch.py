@@ -1,3 +1,7 @@
+"""
+This module uses Selenium to start a Chrome browser session, navigate to a specific web page, extract queries and responses from the page, log them to a text file, and close the browser session.
+"""
+
 from selenium import webdriver
 import time
 import subprocess
@@ -25,3 +29,57 @@ with open(log_file_path, "a") as log_file:
 
 # Close the browser
 driver.quit()
+"""
+Start a new Chrome browser session using Selenium's webdriver.
+
+Parameters:
+None
+
+Returns:
+None
+"""
+"""
+Navigate to the web page with queries and responses using Selenium's webdriver.
+
+Parameters:
+None
+
+Returns:
+None
+"""
+"""
+Wait for the page to load. The wait time can be adjusted as needed.
+
+Parameters:
+None
+
+Returns:
+None
+"""
+"""
+Extract queries and responses from the web page. The CSS selectors can be modified based on the page structure.
+
+Parameters:
+None
+
+Returns:
+None
+"""
+"""
+Log queries and responses to a text file. The log file is appended with new queries and responses.
+
+Parameters:
+None
+
+Returns:
+None
+"""
+"""
+Close the browser session using Selenium's webdriver.
+
+Parameters:
+None
+
+Returns:
+None
+"""
