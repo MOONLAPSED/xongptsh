@@ -1,11 +1,3 @@
-# Testing function
-def test_processing_function(context):  # Pass the context dictionary as an argument
-"""
-This module provides functions to process text strings with custom syntax. It includes a main function to execute the code, a function to process the custom syntax, and a testing function to verify the processing function's correctness.
-"""
-
-def main():
-=======
 # Define main function
 def main():
     # Create context dictionary with placeholder-value pairs
@@ -17,29 +9,24 @@ def main():
     
     # Call testing function
     test_processing_function(context)  # Pass the context dictionary as an argument
-
+=======
+# Define main function
+def main():
+    # Create context dictionary with placeholder-value pairs
+    context = {
+        "placeholder1": "value1",
+        "placeholder2": "value2",
+        "placeholder3": "value3"
+    }
+    
+    # Call testing function
 # Testing function
 def test_processing_function(context):  # Pass the context dictionary as an argument
-    """
-    This module provides functions to process text strings with custom syntax. It includes a main function to execute the code, a function to process the custom syntax, and a testing function to verify the processing function's correctness.
-    """
 =======
 # Testing function
 def test_processing_function(context):  # Pass the context dictionary as an argument
-"""
-This module provides functions to process text strings with custom syntax. It includes a main function to execute the code, a function to process the custom syntax, and a testing function to verify the processing function's correctness.
-"""
-
+# Define main function
 def main():
-    """
-    This is the main function that creates a context dictionary with placeholder-value pairs, calls the processing function to process a text string with the custom syntax, and calls the testing function to verify the processing function's correctness.
-    
-    Parameters:
-    None
-
-    Returns:
-    None
-    """
 =======
 # Import necessary packages and modules
 import pandas as pd
@@ -55,10 +42,6 @@ def main():
     
     # Call testing function
     test_processing_function(context)  # Pass the context dictionary as an argument
-    return text
-
-# Testing function
-def test_processing_function(context):  # Pass the context dictionary as an argument
     # Define list of test cases
     test_cases = [
         {
