@@ -10,29 +10,10 @@ class Entity:
         self.name = name
         self.description = description
 
-class Attribute(Entity):
-    def __init__(self, name, description, data_type):
-        super().__init__(name, description)
-        self.data_type = data_type
-
 # Define the Iteration class as a subclass of Entity
 class Iteration(Entity):
     def __init__(self, name, description):
         super().__init__(name, description)
-
-# Define test cases for the Entity class
-entity_test_cases = [
-    {
-        "name": "Entity 1",
-        "description": "Description 1"
-    },
-    {
-        "name": "Entity 2",
-        "description": "Description 2"
-    }
-]
-# These test cases are used to test the Entity class by creating instances of the class and printing their attributes.
-    """
     The Iteration class represents an iteration of an entity. It is a subclass of the Entity class and inherits the name and description attributes from the Entity class.
 
     Attributes:
@@ -60,6 +41,11 @@ class Attribute(Entity):
     data_type (str): The data type of the attribute.
     """
     def __init__(self, name, description, data_type):
+# Define the Attribute class as a subclass of Entity
+class Attribute(Entity):
+    def __init__(self, name, description, data_type):
+        super().__init__(name, description)
+        self.data_type = data_type
         """
         The constructor for the Attribute class. It initializes the name and description attributes using the constructor of the Entity class and sets the data_type attribute.
 
@@ -87,6 +73,18 @@ class Entity:
     description (str): The description of the entity.
     """
     def __init__(self, name, description):
+# Define test cases for the Entity class
+entity_test_cases = [
+    {
+        "name": "Entity 1",
+        "description": "Description 1"
+    },
+    {
+        "name": "Entity 2",
+        "description": "Description 2"
+    }
+]
+# These test cases are used to test the Entity class by creating instances of the class and printing their attributes.
         """
         The constructor for the Entity class.
 
