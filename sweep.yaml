@@ -2,20 +2,20 @@ gha_enabled: True
 branch: main
 blocked_dirs: [".github/"]
 draft: False
-description: "moonlapsed/xongptsh is a low-level unix-only BASH/Python/C project involving NLP, chatbots, AI agents, and Linux File System (LFS) objects (including the whole gamut from basic cli and dir navigation to custom unit and systemd process files and kernel-level code). All attempts are made, in all situations, to NOT import code including libraries. Strong, strong preference is given to implementations using standard libraries in all but egregious situations. Utilizing SQLite3 and systemd, xongptsh suspends the unix environment around an llvmLLMcompilinker model agent trained on system and kernel, compiler code (gcc), and ELF files. Feel free to put quotes around any of these statments and treat them as inspirational rather than directional, I still have a lot of work to do but I want a test-passing, workflow-utilizing, modern CI/CD repo despite the immaturty of this particular project because bots and agents are offered limited autonomy inside this repo. Adhere to github and python application best practices."
+description: ""moonlapsed/xongptsh is a low-level unix-only BASH/Python/C project involving NLP, chatbots, AI agents, and Linux File System (LFS) objects (including the whole gamut from basic cli and dir navigation to custom unit and systemd process files and kernel-level code). All attempts are made, in all situations, to NOT import code including libraries. Strong, strong preference is given to implementations using standard libraries in all but egregious situations. Utilizing SQLite3 and systemd, xongptsh suspends the unix environment around an llvmLLMcompilinker model agent trained on system and kernel, compiler code (gcc), and ELF files. Feel free to put quotes around any of these statments and treat them as inspirational rather than directional, I still have a lot of work to do but I want a test-passing, workflow-utilizing, modern CI/CD repo despite the immaturty of this particular project because bots and agents are offered limited autonomy inside this repo. Adhere to github and python application best practices.""
 docs:
-  - Modal: https://modal.com/docs/reference
-  - PyGitHub: https://pygithub.readthedocs.io/en/latest/
- 
+   - Modal: https://modal.com/docs/reference
+   - PyGitHub: https://pygithub.readthedocs.io/en/latest/
+
 sandbox:
-  install:
-    - pre-commit install
-    - pip install poetry
-    - poetry install
-  check:
-    - pre-commit run --files {file_path}
-    - 'if [[ "{file_path}" == *.py ]]; then poetry run pylint --errors-only {file_path}; else exit 0; fi'
-    - 'if [[ "{file_path}" == *.py ]]; then PYTHONPATH=. poetry run python {file_path}; else exit 0; fi'
+   install:
+    - pre-commit install
+    - pip install poetry
+    - poetry install
+  check:
+    - pre-commit run --files {file_path}
+    - 'if [[ "{file_path}" == *.py ]]; then poetry run pylint --errors-only {file_path}; else exit 0; fi'
+    - 'if [[ "{file_path}" == *.py ]]; then PYTHONPATH=. poetry run python {file_path}; else exit 0; fi'
 
 rules:
 - "All docstrings and comments should be up to date."
