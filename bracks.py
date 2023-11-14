@@ -30,10 +30,9 @@ str: The processed text string.
 def process_custom_syntax(text, context):
     """
     This function processes a text string by replacing placeholders with corresponding values from a context dictionary.
-    It iterates over placeholder-value pairs in the context dictionary and replaces placeholders with corresponding values in the text string.
 
     Parameters:
-    text (str): The text string to process.
+    text (str): The text string with placeholders.
     context (dict): The context dictionary with placeholder-value pairs.
 
     Returns:
