@@ -1,6 +1,6 @@
 gha_enabled: True
 branch: main
-blocked_dirs: [".github/"]
+blocked_dirs: ["dev/"]
 draft: False
 description: >
   MOONLAPSED/xongptsh is a low-level unix-only BASH/Python/C/KUBERNETES/Docker project involving NLP, chatbots, AI agents, and Linux File System (LFS) objects (including the whole gamut from basic cli and dir navigation to custom unit and systemd process files and kernel-level code). All attempts are made, in all situations, to NOT import code including libraries. Strong, strong preference is given to implementations using standard libraries in all but egregious situations. Utilizing SQLite3 and systemd, xongptsh suspends the unix environment around an llvmLLMcompilinker model agent trained on system and kernel, compiler code (gcc), and ELF files. Feel free to put quotes around any of these statements and treat them as inspirational rather than directional, I still have a lot of work to do but I want a test-passing, workflow-utilizing, modern CI/CD repo despite the immaturity of this particular project because bots and agents are offered limited autonomy inside this repo. Adhere to github and python application best practices.
@@ -33,7 +33,6 @@ rules:
 - rapidAPI/Swagger documentation
 - Loose coupling between modules
 - Consistent with PEP8 style guide
-- Return Codes - see example returncode.schema.py
-- SQL database - see schema.sql
-- "Return Codes - see example returncode.schema.py"
-- "SQL database - see schema.sql"
+- Return Codes - see ~/app/TaskBot.md
+- SQL database - see ~/database/schema.sql
+
