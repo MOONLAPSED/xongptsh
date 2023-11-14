@@ -17,6 +17,16 @@ def main():
     # Call testing function
     test_processing_function(context)  # Pass the context dictionary as an argument
 
+"""
+This function processes a text string with custom syntax by replacing placeholders with corresponding values from a context dictionary.
+
+Parameters:
+text (str): The text string to process.
+context (dict): The context dictionary with placeholder-value pairs.
+
+Returns:
+str: The processed text string.
+"""
 def process_custom_syntax(text, context):
     # Iterate over placeholder-value pairs in context dictionary
     for placeholder, value in context.items():
