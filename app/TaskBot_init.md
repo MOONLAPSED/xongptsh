@@ -11,9 +11,13 @@ taskbot["modes"] = {
     "description": "Natural conversation chatbot mode utilizing base model capabilities",
     "base_model": "OpenAI Codex" 
   },
+  "instruct": {  
+    "description": "Responds contextually using NLP and code examples for teaching"
   "debug": {
-    "description": "Provides step-by-step reasoning with self-critical error checking",
-    "suppress_default": True 
+    "description": "Provides step-by-step reasoning with self-critical error checking"
+}
+=======
+}
   },
   "instruct": {  
     "description": "Responds contextually using NLP and code examples for teaching", 
