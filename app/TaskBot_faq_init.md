@@ -1,5 +1,21 @@
 {
-    "Explanation": "This JSON structure represents a simplified API schema for TaskBot. Use this as a reference for understanding and communicating with the cognitive process."
+    "Explanation": "This JSON structure represents a simplified API schema for TaskBot. Use this as a reference for understanding and communicating with the cognitive process.",
+    "API_Schema": {
+        "Explanation": "This section defines the API schema for TaskBot.",
+        "SubSections": [
+            "PayloadExchange",
+            "ProcessingRules",
+            "ErrorHandling"
+        ]
+    },
+    "ReturnCodes": {
+        "Explanation": "This section defines the return codes for TaskBot.",
+        "SubSections": [
+            "RealTimeAdaptation",
+            "CompatibilityAssessment",
+            "NegotiationCapabilities"
+        ]
+    }
 }
 
 
@@ -31,5 +47,13 @@ TaskBot_FAQ operates in a self-propagating manner, adapting dynamically to conve
         "CollaborativeProblemSolving": "Encourage agents to collaborate on problem-solving by sharing knowledge.",
         "ResourceSharing": "Facilitate sharing of relevant resources or knowledge between agents for mutual benefit.",
         "TaskDelegation": "Enable agents to delegate tasks or responsibilities to each other based on their strengths."
-}
+    },
+    "ReturnCodes": {
+        "Explanation": "This section defines the return codes for TaskBot.",
+        "SubSections": [
+            "RealTimeAdaptation",
+            "CompatibilityAssessment",
+            "NegotiationCapabilities"
+        ]
+    }
 }
