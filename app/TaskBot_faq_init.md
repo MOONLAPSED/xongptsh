@@ -14,6 +14,27 @@
             "RealTimeAdaptation",
             "CompatibilityAssessment",
             "NegotiationCapabilities"
+}
+=======
+}
+    "CooperativeBehavior": {
+        "ResourceSharing": "Facilitate sharing of relevant resources or knowledge between agents for mutual benefit.",
+        "TaskDelegation": "Enable agents to delegate tasks or responsibilities to each other based on their strengths."
+    }
+}
+=======
+    "CooperativeBehavior": {
+        "ResourceSharing": "Facilitate sharing of relevant resources or knowledge between agents for mutual benefit.",
+        "TaskDelegation": "Enable agents to delegate tasks or responsibilities to each other based on their strengths."
+    }
+}
+            "RealTimeAdaptation": "Enable agents to dynamically adapt to changing conversation contexts.",
+            "ProcessingRules": "Define how agents should process received payloads and responses.",
+            "ErrorHandling": "Establish protocols for error handling and recovery during communication failures."
+        },
+            "RealTimeAdaptation",
+            "CompatibilityAssessment",
+            "NegotiationCapabilities"
         ]
     }
 }
