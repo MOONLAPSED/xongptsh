@@ -1,11 +1,12 @@
 import time
 from utils.backoff import exponential_backoff
+from error_handler import BadRequestError, UnsupportedActionError, BadParamError, BadHandlerError, InternalHandlerError, FallbackError
+from api import API
 
 def operation1_that_could_fail():
     """
-"""
-This module contains functions that simulate operations that could fail and a main agent function that retries these operations using exponential backoff.
-"""
+    This function simulates an operation that could fail. It doesn't take any inputs or produce any outputs.
+    """
 =======
 =======
 def agent_main():
@@ -52,13 +53,21 @@ def operation1_that_could_fail():
     """
     This function simulates an operation that could fail. It doesn't take any inputs or produce any outputs.
     """
-    pass
+    try:
+        # Simulate operation that could fail
+        pass
+    except:
+        raise BadRequestError()
 
 def operation2_that_could_fail():
     """
     This function simulates another operation that could fail. It doesn't take any inputs or produce any outputs.
     """
-    raise Exception("Operation 2 failed")
+    try:
+        # Simulate operation that could fail
+        pass
+    except:
+        raise BadRequestError()
 =======
 import time
 from utils.backoff import exponential_backoff
@@ -85,7 +94,11 @@ def operation2_that_could_fail():
     """
     This function simulates another operation that could fail. It doesn't take any inputs or produce any outputs.
     """
-    pass
+    try:
+        # Simulate operation that could fail
+        pass
+    except:
+        raise BadRequestError()
 =======
 """
 This function simulates another operation that could fail. It doesn't take any inputs or produce any outputs.
@@ -109,26 +122,27 @@ def agent_main():
 
     The function doesn't take any inputs or produce any outputs. It has a side effect of potentially raising an exception.
     """
+    api = API()
     retries = 0
     while retries < 10:
         try:
-            operation1_that_could_fail()
-            operation2_that_could_fail()
+            api.handle_event(operation1_that_could_fail())
+            api.handle_event(operation2_that_could_fail())
             break
-        except Exception:
+        except Exception as e:
             retries += 1
             wait_time = exponential_backoff(retries)
             time.sleep(wait_time)
     if retries >= 10:
-        raise Exception("Operation failed after 10 retries")
+        raise FallbackError()
         try:
-            operation1_that_could_fail()
-            operation2_that_could_fail()
+            api.handle_event(operation1_that_could_fail())
+            api.handle_event(operation2_that_could_fail())
             break
-        except Exception:
+        except Exception as e:
             retries += 1
             if retries > 10:
-                raise Exception("Operation failed after 10 retries")
+                raise FallbackError()
             wait_time = exponential_backoff(retries)
             time.sleep(wait_time)
 =======
@@ -188,13 +202,13 @@ new line(s) to replace
     retries = 0
     while True:
         try:
-            operation1_that_could_fail()
-            operation2_that_could_fail()
+            api.handle_event(operation1_that_could_fail())
+            api.handle_event(operation2_that_could_fail())
             break
-        except Exception:
+        except Exception as e:
             retries += 1
             if retries > 10:
-                raise Exception("Operation failed after 10 retries")
+                raise FallbackError()
             wait_time = exponential_backoff(retries)
             time.sleep(wait_time)
     """
@@ -267,9 +281,9 @@ def test_agent_main(mocker):
 
     The function takes a mocker as an input. It doesn't produce any outputs. It has a side effect of potentially raising an exception.
     """
-    mocker.patch('agent.operation1_that_could_fail', side_effect=Exception)
-    mocker.patch('agent.operation2_that_could_fail', side_effect=Exception)
-    with pytest.raises(Exception, match="Operation failed after 10 retries"):
+    mocker.patch('agent.operation1_that_could_fail', side_effect=BadRequestError)
+    mocker.patch('agent.operation2_that_could_fail', side_effect=BadRequestError)
+    with pytest.raises(BadRequestError, match="Operation failed after 10 retries"):
         agent_main()
 
 """
