@@ -5,6 +5,7 @@ The UnixFilesystem class represents a Unix filesystem iteration with various att
 from main import Iteration
 
 
+from main import Iteration
 class UnixFilesystem(Iteration):
     """
     This class represents a Unix filesystem iteration with various attributes.
