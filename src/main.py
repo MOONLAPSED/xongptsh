@@ -9,12 +9,7 @@ def operation_that_could_fail():
     """
     This function simulates an operation that could fail. It doesn't take any inputs or produce any outputs.
     """
-    try:
-        # This is a placeholder for the operation that could fail.
-        # In the real code, this would be replaced with the actual operation.
-        pass
-    except:
-        raise BadRequestError()
+    # Function code here
 
 def main():
     """
