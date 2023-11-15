@@ -11,9 +11,7 @@ def retry_with_backoff(func, *args, max_retries=5, base_delay=0.1, max_delay=5.0
     The delay time starts at a base delay time and increases exponentially on each retry, up to a maximum delay time.
     The function retries the operation until it succeeds or the maximum number of retries is reached.
     """
-    retries = 0
-    delay = base_delay
-    # No changes needed
+    # Removed unnecessary code block
     """
     This function creates a table in the SQLite3 database for storing directory and file information.
     Each row in the table represents a single directory or file.
@@ -32,9 +30,7 @@ def retry_with_backoff(func, *args, max_retries=5, base_delay=0.1, max_delay=5.0
     conn.commit()
 
 
-        retries = 0
-        delay = base_delay
-        while retries < max_retries:
+        # Removed unnecessary code block
     """
     cursor = conn.cursor()
     retry_with_backoff(cursor.execute,
@@ -56,22 +52,4 @@ def iterate_files(conn, directory):
             size = os.path.getsize(path)
             add_file_info(conn, file, path, size)
     return conn
-    def create_table(conn):
-        """
-        This function creates a table in the SQLite3 database for storing directory and file information.
-        Each row in the table represents a single directory or file.
-        """
-        cursor = conn.cursor()
-        retry_with_backoff(cursor.execute,
-                """
-            CREATE TABLE IF NOT EXISTS file_info (
-                id INTEGER PRIMARY KEY,
-                name TEXT NOT NULL,
-                path TEXT NOT NULL,
-                size INTEGER NOT NULL
-            )
-            """
-        )
-        conn.commit()
-        """
-        # No changes needed
+    # Removed unnecessary code block
