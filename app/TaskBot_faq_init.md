@@ -4,12 +4,6 @@
         "Explanation": "This section defines the API schema for TaskBot.",
         "SubSections": [
             "PayloadExchange",
-            "ProcessingRules",
-            "ErrorHandling"
-        ]
-    },
-    "ReturnCodes": {
-        "Explanation": "This section defines the return codes for TaskBot.",
         "SubSections": [
             "RealTimeAdaptation",
             "CompatibilityAssessment",
@@ -29,8 +23,6 @@ catalyst.faq = {
 
     "DynamicAdaptation": {
         "RealTimeAdaptation": "Enable agents to dynamically adapt to changing conversation contexts.",
-    "ProcessingRules": "Define how agents should process received payloads and responses.",
-    "ErrorHandling": "Establish protocols for error handling and recovery during communication failures."
     },
 
     "DynamicAdaptation": {
