@@ -57,6 +57,8 @@ def iterate_files(conn, directory):
     return conn
 
 
+import time
+
 def create_table(conn):
     """
     This function creates a table in the SQLite3 database for storing directory and file information.
@@ -75,32 +77,27 @@ def create_table(conn):
     )
     conn.commit()
 
-
 def add_file_info(conn, name, path, size):
-import time
 
-def retry_with_backoff(func, *args, max_retries=5, base_delay=0.1, max_delay=5.0):
-    """
-    This function implements a retry loop with exponential backoff.
-    It takes a function and its arguments as parameters, and calls the function with the given arguments.
-    If the function raises an exception, it waits for a delay time before retrying.
-    The delay time starts at a base delay time and increases exponentially on each retry, up to a maximum delay time.
-    The function retries the operation until it succeeds or the maximum number of retries is reached.
-    """
-    retries = 0
-    delay = base_delay
-    while retries < max_retries:
-        try:
-            return func(*args)
-        except Exception as e:
-            time.sleep(delay)
-            delay = min(delay * 2, max_delay)
-            retries += 1
-    raise Exception("Maximum number of retries reached")
-    """
-    This function adds a row to the file_info table in the SQLite3 database.
-    Each row represents a single directory or file.
-    """
+    def retry_with_backoff(func, *args, max_retries=5, base_delay=0.1, max_delay=5.0):
+        """
+        This function implements a retry loop with exponential backoff.
+        It takes a function and its arguments as parameters, and calls the function with the given arguments.
+        If the function raises an exception, it waits for a delay time before retrying.
+        The delay time starts at a base delay time and increases exponentially on each retry, up to a maximum delay time.
+        The function retries the operation until it succeeds or the maximum number of retries is reached.
+        """
+        retries = 0
+        delay = base_delay
+        while retries < max_retries:
+            try:
+                return func(*args)
+            except Exception as e:
+                time.sleep(delay)
+                delay = min(delay * 2, max_delay)
+                retries += 1
+        raise Exception("Maximum number of retries reached")
+
     cursor = conn.cursor()
     cursor.execute(
         """
@@ -109,7 +106,6 @@ def retry_with_backoff(func, *args, max_retries=5, base_delay=0.1, max_delay=5.0
         (name, path, size),
     )
     conn.commit()
-
 
 def iterate_files(conn, directory):
     """
