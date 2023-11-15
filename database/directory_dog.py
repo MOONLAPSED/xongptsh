@@ -48,7 +48,7 @@ def insert_data(cursor):
     base_delay = 1
     for retry_count in range(max_retries):
         try:
-            cursor.execute(
+                cursor.execute(
                 """
                 INSERT INTO directories (name, path, created_at, modified_at)
                 VALUES ('dir1', '/path/to/dir1', '2021-01-01', '2021-01-02')
