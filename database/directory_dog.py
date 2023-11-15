@@ -70,27 +70,29 @@ def create_tables(cursor):
         )
     """
     )
-        """
-        CREATE TABLE IF NOT EXISTS permissions (
-            id INTEGER PRIMARY KEY,
-            file_id INTEGER,
-            user_id INTEGER,
-            permission TEXT,
-            FOREIGN KEY (file_id) REFERENCES files (id),
-            FOREIGN KEY (user_id) REFERENCES users (id)
-        )
-    """
-    )
+        try:
+            cursor.execute(
+                """
+                CREATE TABLE IF NOT EXISTS permissions (
+                    id INTEGER PRIMARY KEY,
+                    file_id INTEGER,
+                    user_id INTEGER,
+                    permission TEXT,
+                    FOREIGN KEY (file_id) REFERENCES files (id),
+                    FOREIGN KEY (user_id) REFERENCES users (id)
+                )
+                """
+            )
 
-    cursor.execute(
-        """
-        CREATE TABLE IF NOT EXISTS users (
-            id INTEGER PRIMARY KEY,
-            name TEXT,
-            email TEXT
-        )
-    """
-    )
+            cursor.execute(
+                """
+                CREATE TABLE IF NOT EXISTS users (
+                    id INTEGER PRIMARY KEY,
+                    name TEXT,
+                    email TEXT
+                )
+                """
+            )
             break
         except sqlite3.OperationalError:
             if retry_count >= max_retries - 1:
