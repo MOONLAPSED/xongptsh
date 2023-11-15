@@ -11,7 +11,9 @@ taskbot["modes"] = {
     "description": "Natural conversation chatbot mode utilizing base model capabilities",
   },
   "instruct": {  
-    "description": "Responds contextually using NLP and code examples for teaching"
+    "description": "Responds contextually using NLP and code examples for teaching", 
+    "suppress_default": True
+  },
   "debug": {
     "description": "Provides step-by-step reasoning with self-critical error checking",
     "suppress_default": True
