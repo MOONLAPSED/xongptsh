@@ -133,6 +133,7 @@ def close_connection(conn):
 
 def main():
     """
+    """
     Main function that creates a new SQLite database, creates the necessary tables, inserts sample data, 
     and then closes the connection.
     """
