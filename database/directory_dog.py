@@ -2,9 +2,19 @@ import sqlite3
 
 
 def create_database(db_name):
-    conn = sqlite3.connect(db_name)
-    cursor = conn.cursor()
-    return conn, cursor
+    max_retries = 5
+    base_delay = 1
+    for retry_count in range(max_retries):
+        try:
+            conn = sqlite3.connect(db_name)
+            cursor = conn.cursor()
+            return conn, cursor
+        except sqlite3.OperationalError:
+            if retry_count >= max_retries - 1:
+                raise
+            else:
+                delay = base_delay * (2 ** retry_count)
+                time.sleep(delay)
 
 
 def create_tables(cursor):
@@ -107,19 +117,6 @@ def insert_data(cursor):
         """
     )
 
-    cursor.execute(
-    """
-    Creates the necessary tables in the SQLite database. 
-    The `cursor` parameter should be a SQLite cursor object.
-    """
-    """
-    Creates a new SQLite database with the given name and returns a connection and cursor to the database. 
-    The `db_name` parameter should be a string representing the name of the database.
-    """
-"""
-This module provides functions for creating and interacting with a SQLite database that represents a Unix file system.
-"""
-        """
         CREATE TABLE IF NOT EXISTS permissions (
             id INTEGER PRIMARY KEY,
             file_id INTEGER,
@@ -190,43 +187,23 @@ def insert_data(cursor):
         INSERT INTO users (name, email)
         VALUES ('user2', 'user2@example.com')
         """
-    )
-
-
-def close_connection(conn):
-    conn.commit()
-    conn.close()
 
 
 def main():
-    """
-    """
-    Main function that creates a new SQLite database, creates the necessary tables, inserts sample data, 
-    and then closes the connection.
-    """
-    conn, cursor = create_database("unix_file_system.db")
-    create_tables(cursor)
-    insert_data(cursor)
-    close_connection(conn)
+    max_retries = 5
+    base_delay = 1
+    for retry_count in range(max_retries):
+        try:
+            conn, cursor = create_database("unix_file_system.db")
+            create_tables(cursor)
+            insert_data(cursor)
+            close_connection(conn)
+        except sqlite3.OperationalError:
+            if retry_count >= max_retries - 1:
+                raise
+            else:
+                delay = base_delay * (2 ** retry_count)
+                time.sleep(delay)
 
-if __name__ == "__main__":
-    main()
-    """
-    Commits any changes and closes the connection to the SQLite database. 
-    The `conn` parameter should be a SQLite connection object.
-    """
-    )
-
-    cursor.execute(
-    """
-    Inserts sample data into the SQLite database. 
-    The `cursor` parameter should be a SQLite cursor object.
-    """
-        """
-        INSERT INTO directories (name, path, created_at, modified_at)
-        VALUES ('dir2', '/path/to/dir2', '2021-01-03', '2021-01-04')
-    """
-    )
-    
 if __name__ == "__main__":
     main()
