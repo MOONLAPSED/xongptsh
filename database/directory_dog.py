@@ -69,14 +69,9 @@ def create_tables(cursor):
                 max_retries = 5
                 base_delay = 1
                 for retry_count in range(max_retries):
-                    try:
-                            cursor.execute(
-                INSERT INTO permissions (file_id, user_id, permission)
-                VALUES (1, 1, 'read')
-                """
-            )
-            cursor.execute(
-                """
+            if retry_count >= max_retries - 1:
+                logging.error(f'Insert operation failed after {retry_count} retries.')
+                raise
                 INSERT INTO permissions (file_id, user_id, permission)
                 VALUES (2, 2, 'write')
                 """
