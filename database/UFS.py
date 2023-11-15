@@ -14,10 +14,10 @@
     - mtime (str): The mtime of the filesystem.
     - atime (str): The atime of the filesystem.
     """
-    from main import Iteration
+from main import Iteration
 
 
-    class UnixFilesystem(Iteration):
+class UnixFilesystem(Iteration):
 
         def __init__(
             self,
