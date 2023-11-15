@@ -9,4 +9,3 @@ def public_function(arg1, arg2):
     Returns:
         type: Description of the return value.
     """
-    ...
