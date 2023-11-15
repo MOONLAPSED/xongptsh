@@ -14,6 +14,44 @@
     - mtime (str): The mtime of the filesystem.
     - atime (str): The atime of the filesystem.
     """
+import logging
+logging.basicConfig(filename='debug.log', level=logging.DEBUG)
+from main import Iteration
+
+
+class UnixFilesystem(Iteration):
+    def __init__(
+        self,
+        inode,
+        pathname,
+        filetype,
+        permissions,
+        owner,
+        group_id,
+        PID,
+        unit_file,
+        unit_file_addr,
+        size,
+        mtime,
+        atime,
+    ):
+        super().__init__(inode, "Unix filesystem")
+        self.pathname = pathname
+        self.filetype = filetype
+        self.permissions = permissions
+        self.owner = owner
+        self.group_id = group_id
+        self.size = size
+        self.PID = PID
+        self.unit_file = unit_file  # or name of process or daemon or service
+        self.unit_file_addr = (
+            unit_file_addr  # or symlink/pointer to process or daemon or service
+        )
+        self.mtime = mtime
+        self.atime = atime
+
+    def __str__(self):
+    """
 from main import Iteration
 
 
@@ -52,6 +90,15 @@ class UnixFilesystem(Iteration):
         """
         This method returns a string representation of the UnixFilesystem object.
 
+        Parameters:
+        None
+
+        Returns:
+        str: A string representation of the UnixFilesystem object in the format "inode: pathname".
+        """
+        logger = logging.getLogger(__name__)
+        logger.debug("Debug information: {}".format(self.inode))
+        return "{}: {}".format(self.inode, self.pathname)
         Parameters:
         None
 
