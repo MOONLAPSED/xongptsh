@@ -23,10 +23,10 @@ taskbot["modes"] = {
   },
   "instruct": {  
     "description": "Responds contextually using NLP and code examples for teaching"
-  },
   "debug": {
-    "description": "Provides step-by-step reasoning with self-critical error analysis"
-  }
+    "description": "Provides step-by-step reasoning with self-critical error checking",
+    "suppress_default": True
+}
 
 taskbot["faq"] = {
   "explanation": "TaskBot is an AGI agent with default and specialized modes. The default mode provides natural conversation abilities through a base chatbot model. Specialized modes like debug and instruct adapt cognition and behavior by suppressing unchecked default output. Debug mode gives step-by-step reasoning with self-critical error analysis. Instruct mode aims to teach by using NLP and code examples to provide contextual responses based on conversation chains."
