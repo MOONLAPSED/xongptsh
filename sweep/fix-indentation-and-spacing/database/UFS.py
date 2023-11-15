@@ -39,6 +39,23 @@ class UnixFilesystem(Iteration):
         mtime,
         atime,
     ):
+        """
+        This method initializes a UnixFilesystem object.
+
+        Parameters:
+        inode (str): The inode of the filesystem.
+        pathname (str): The pathname of the filesystem.
+        filetype (str): The filetype of the filesystem.
+        permissions (str): The permissions of the filesystem.
+        owner (str): The owner of the filesystem.
+        group_id (str): The group_id of the filesystem.
+        PID (str): The PID of the filesystem.
+        unit_file (str): The unit_file of the filesystem.
+        unit_file_addr (str): The unit_file_addr of the filesystem.
+        size (str): The size of the filesystem.
+        mtime (str): The mtime of the filesystem.
+        atime (str): The atime of the filesystem.
+        """
         super().__init__(inode, "Unix filesystem")
         self.pathname = pathname
         self.filetype = filetype
