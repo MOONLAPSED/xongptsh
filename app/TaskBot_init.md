@@ -13,7 +13,6 @@ taskbot["modes"] = {
   },
   "instruct": {  
     "description": "Responds contextually using NLP and code examples for teaching"
-  "debug": {
     "description": "Provides step-by-step reasoning with self-critical error checking"
 }
 =======
