@@ -63,11 +63,6 @@ def operation2_that_could_fail():
     """
     This function simulates another operation that could fail. It doesn't take any inputs or produce any outputs.
     """
-    try:
-        # Simulate operation that could fail
-        pass
-    except:
-        raise BadRequestError()
 =======
 import time
 from utils.backoff import exponential_backoff
@@ -87,6 +82,7 @@ This function simulates an operation that could fail. It doesn't take any inputs
 new line(s) to replace
 =======
      pass
+    # Function code here
 =======
 new line(s) to replace
 =======
