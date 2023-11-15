@@ -1,46 +1,43 @@
 import os
 import sqlite3
+import time
 
 
-def create_engine():
+def retry_with_backoff(func, *args, max_retries=5, base_delay=0.1, max_delay=5.0):
     """
-    This function creates and returns a new SQLite3 engine.
-    It takes no parameters and returns an engine object.
+    This function implements a retry loop with exponential backoff.
+    It takes a function and its arguments as parameters, and calls the function with the given arguments.
+    If the function raises an exception, it waits for a delay time before retrying.
+    The delay time starts at a base delay time and increases exponentially on each retry, up to a maximum delay time.
+    The function retries the operation until it succeeds or the maximum number of retries is reached.
     """
-    conn = sqlite3.connect("file_info.db")
-    return conn
-
-
-def create_table(conn):
+    # Removed unnecessary code block
     """
     This function creates a table in the SQLite3 database for storing directory and file information.
     Each row in the table represents a single directory or file.
     """
     cursor = conn.cursor()
-    cursor.execute(
+    retry_with_backoff(cursor.execute,
+            """
+        CREATE TABLE IF NOT EXISTS file_info (
+            id INTEGER PRIMARY KEY,
+            name TEXT NOT NULL,
+            path TEXT NOT NULL,
+            size INTEGER NOT NULL
+        )
         """
-    CREATE TABLE IF NOT EXISTS file_info (
-        id INTEGER PRIMARY KEY,
-        name TEXT NOT NULL,
-        path TEXT NOT NULL,
-        size INTEGER NOT NULL
-    )
-    """
     )
     conn.commit()
 
 
-def add_file_info(conn, name, path, size):
-    """
-    This function adds a row to the file_info table in the SQLite3 database.
-    Each row represents a single directory or file.
+        # Removed unnecessary code block
     """
     cursor = conn.cursor()
-    cursor.execute(
-        """
-    INSERT INTO file_info (name, path, size) VALUES (?, ?, ?)
-    """,
-        (name, path, size),
+    retry_with_backoff(cursor.execute,
+            """
+        INSERT INTO file_info (name, path, size) VALUES (?, ?, ?)
+        """,
+            (name, path, size),
     )
     conn.commit()
 
@@ -54,3 +51,5 @@ def iterate_files(conn, directory):
             path = os.path.join(root, file)
             size = os.path.getsize(path)
             add_file_info(conn, file, path, size)
+    return conn
+    # Removed unnecessary code block
