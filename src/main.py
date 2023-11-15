@@ -1,13 +1,18 @@
 import time
 from utils.backoff import exponential_backoff
+from error_handler import BadRequestError, UnsupportedActionError, BadParamError, BadHandlerError, InternalHandlerError, FallbackError
+from api import API
 
 def operation_that_could_fail():
     """
     This function simulates an operation that could fail. It doesn't take any inputs or produce any outputs.
     """
-    # This is a placeholder for the operation that could fail.
-    # In the real code, this would be replaced with the actual operation.
-    pass
+    try:
+        # This is a placeholder for the operation that could fail.
+        # In the real code, this would be replaced with the actual operation.
+        pass
+    except:
+        raise BadRequestError()
 
 def main():
     """
@@ -15,6 +20,7 @@ def main():
 
     The function doesn't take any inputs or produce any outputs. It has a side effect of potentially raising an exception.
     """
+    api = API()
     retries = 0
     while True:
         try:
