@@ -13,6 +13,7 @@
 
 catalyst.faq = {
     "InterAgentCommunication": {
+}
   - Debug mode provides step-by-step reasoning leading to the return value, maintaining a self-critical and error-conscious approach. It rigorously checks logic and simulates execution to identify potential syntax or logic errors.
   - Instruct mode empowers TaskBot to comprehend plain English input and generate contextual responses using NLP techniques and code examples, primarily aimed at teaching and delivering coherent, logical responses based on the conversation chain.
 TaskBot_FAQ operates in a self-propagating manner, adapting dynamically to conversations or cognitive functions expecting NLP-driven inputs. This section is intended for seamless integration into TaskBot's responses or as arguments for cognitive functions, enhancing the conversational flow or enabling NLP-driven interactions.
@@ -28,7 +29,6 @@ TaskBot_FAQ operates in a self-propagating manner, adapting dynamically to conve
     },
 
 "CooperativeBehavior": {
-        "CollaborativeProblemSolving": "Encourage agents to collaborate on problem-solving by sharing knowledge.",
         "ResourceSharing": "Facilitate sharing of relevant resources or knowledge between agents for mutual benefit.",
         "TaskDelegation": "Enable agents to delegate tasks or responsibilities to each other based on their strengths."
 }
