@@ -31,14 +31,14 @@ class UnixFilesystem(Iteration):
         self.mtime = mtime
         self.atime = atime
 
-    def __str__(self):
-        """
-        This method returns a string representation of the UnixFilesystem object.
-    
-        Parameters:
-        None
-    
-        Returns:
-        str: A string representation of the UnixFilesystem object in the format "inode: pathname".
-        """
-        return "{}: {}".format(self.inode, self.pathname)
+        def __str__(self):
+            """
+            This method returns a string representation of the UnixFilesystem object.
+        
+            Parameters:
+            None
+        
+            Returns:
+            str: A string representation of the UnixFilesystem object in the format "inode: pathname".
+            """
+            return "{}: {}".format(self.inode, self.pathname)
