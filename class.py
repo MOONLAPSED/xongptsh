@@ -30,17 +30,6 @@ class Iteration(Entity):
         """
         super().__init__(name, description)
 
-# Define test cases for the Entity class
-class Attribute(Entity):
-    """
-    The Attribute class represents an attribute of an entity. It is a subclass of the Entity class and includes an additional attribute for the data type.
-
-    Attributes:
-    name (str): The name of the attribute. Inherited from Entity.
-    description (str): The description of the attribute. Inherited from Entity.
-    data_type (str): The data type of the attribute.
-    """
-    def __init__(self, name, description, data_type):
 # Define the Attribute class as a subclass of Entity
 class Attribute(Entity):
     def __init__(self, name, description, data_type):
