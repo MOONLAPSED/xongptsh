@@ -41,7 +41,7 @@ def operation2_that_could_fail():
     """
     This function simulates another operation that could fail. It doesn't take any inputs or produce any outputs.
     """
-    pass
+    raise Exception("Operation 1 failed")
 =======
 """
 =======
@@ -58,7 +58,7 @@ def operation2_that_could_fail():
     """
     This function simulates another operation that could fail. It doesn't take any inputs or produce any outputs.
     """
-    pass
+    raise Exception("Operation 2 failed")
 =======
 import time
 from utils.backoff import exponential_backoff
@@ -110,7 +110,17 @@ def agent_main():
     The function doesn't take any inputs or produce any outputs. It has a side effect of potentially raising an exception.
     """
     retries = 0
-    while True:
+    while retries < 10:
+        try:
+            operation1_that_could_fail()
+            operation2_that_could_fail()
+            break
+        except Exception:
+            retries += 1
+            wait_time = exponential_backoff(retries)
+            time.sleep(wait_time)
+    if retries >= 10:
+        raise Exception("Operation failed after 10 retries")
         try:
             operation1_that_could_fail()
             operation2_that_could_fail()
@@ -141,8 +151,8 @@ def test_agent_main(mocker):
 
     The function takes a mocker as an input. It doesn't produce any outputs. It has a side effect of potentially raising an exception.
     """
-    mocker.patch('agent.operation1_that_could_fail', side_effect=Exception)
-    mocker.patch('agent.operation2_that_could_fail', side_effect=Exception)
+    mocker.patch('src.agent.operation1_that_could_fail', side_effect=Exception)
+    mocker.patch('src.agent.operation2_that_could_fail', side_effect=Exception)
     with pytest.raises(Exception, match="Operation failed after 10 retries"):
         agent_main()
 =======

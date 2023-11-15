@@ -1,7 +1,15 @@
+"""
+This module provides functions for creating and interacting with a SQLite database that represents a Unix file system.
+"""
+
 import sqlite3
 
 
 def create_database(db_name):
+    """
+    Creates a new SQLite database with the given name and returns a connection and cursor to the database. 
+    The `db_name` parameter should be a string representing the name of the database.
+    """
     conn = sqlite3.connect(db_name)
     cursor = conn.cursor()
     return conn, cursor
@@ -40,20 +48,22 @@ def create_tables(cursor):
             if retry_count >= max_retries - 1:
                 raise
 
-
-def insert_data(cursor):
-    max_retries = 5
-    base_delay = 1
-    for retry_count in range(max_retries):
-        try:
                 cursor.execute(
                 """
                 INSERT INTO directories (name, path, created_at, modified_at)
                 VALUES ('dir1', '/path/to/dir1', '2021-01-01', '2021-01-02')
                 """
             )
-            cursor.execute(
+            def insert_data(cursor):
                 """
+                Inserts sample data into the SQLite database. 
+                The `cursor` parameter should be a SQLite cursor object.
+                """
+                max_retries = 5
+                base_delay = 1
+                for retry_count in range(max_retries):
+                    try:
+                            cursor.execute(
                 INSERT INTO permissions (file_id, user_id, permission)
                 VALUES (1, 1, 'read')
                 """
@@ -192,6 +202,45 @@ def insert_data(cursor):
 
 
 def close_connection(conn):
+    conn.commit()
+    conn.close()
+
+
+def main():
+    """
+    Main function that creates a new SQLite database, creates the necessary tables, inserts sample data, 
+    and then closes the connection.
+    """
+    conn, cursor = create_database("unix_file_system.db")
+    create_tables(cursor)
+    insert_data(cursor)
+    close_connection(conn)
+
+if __name__ == "__main__":
+    main()
+    """
+    Commits any changes and closes the connection to the SQLite database. 
+    The `conn` parameter should be a SQLite connection object.
+    """
+    )
+
+    cursor.execute(
+    """
+    Inserts sample data into the SQLite database. 
+    The `cursor` parameter should be a SQLite cursor object.
+    """
+        """
+        INSERT INTO directories (name, path, created_at, modified_at)
+        VALUES ('dir2', '/path/to/dir2', '2021-01-03', '2021-01-04')
+    """
+    )
+    
+if __name__ == "__main__":
+    main()
+    """
+    Commits any changes and closes the connection to the SQLite database. 
+    The `conn` parameter should be a SQLite connection object.
+    """
     conn.commit()
     conn.close()
 
