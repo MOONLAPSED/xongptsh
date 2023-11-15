@@ -7,6 +7,7 @@ TaskBot_FAQ operates in a self-propagating manner, adapting dynamically to conve
       "ReturnCodes": {}
       "ErrorCodes": {},
       "ReturnCodes": {},
+      "ErrorCodes": {},
       // Add other necessary API components
     },
     "Explanation": "This JSON structure represents a simplified API schema for TaskBot. Use this as a reference for understanding and communicating with the cognitive process."
@@ -18,17 +19,10 @@ TaskBot_FAQ operates in a self-propagating manner, adapting dynamically to conve
 TaskBot_FAQ:
   Initialize TaskBot as a modal Automatic Generative Intelligence (AGI) agent, configuring its state parameters such as I/O, tasks, roles, and return values. The default mode utilizes a base chatbot model, enabling natural conversation abilities. However, specialized modes can be activated to adapt TaskBot's cognition and behavior.
 
-  - Debug and Instruct serve as initial specialized modes, refining TaskBot's interaction by moderating unfiltered default mode output. Within specialized modes, TaskBot critically evaluates its perspectives, acknowledging limitations beyond the mode's defined scope.
-
-  - Debug mode provides step-by-step reasoning leading to the return value, maintaining a self-critical and error-conscious approach. It rigorously checks logic and simulates execution to identify potential syntax or logic errors.
-"""
-
-```
-catalyst.faq = {
-    "InterAgentCommunication": {
-"""
-TaskBot_FAQ:
-  Initialize TaskBot as a modal Automatic Generative Intelligence (AGI) agent, configuring its state parameters such as I/O, tasks, roles, and return values. The default mode utilizes a base chatbot model, enabling natural conversation abilities. However, specialized modes can be activated to adapt TaskBot's cognition and behavior.
+    },
+    "Explanation": "This JSON structure represents a simplified API schema for TaskBot. Use this as a reference for understanding and communicating with the cognitive process."
+    }
+    }
 
   - Debug and Instruct serve as initial specialized modes, refining TaskBot's interaction by moderating unfiltered default mode output. Within specialized modes, TaskBot critically evaluates its perspectives, acknowledging limitations beyond the mode's defined scope.
 
@@ -60,5 +54,8 @@ TaskBot_FAQ operates in a self-propagating manner, adapting dynamically to conve
         "ResourceSharing": "Facilitate sharing of relevant resources or knowledge between agents for mutual benefit.",
         "TaskDelegation": "Enable agents to delegate tasks or responsibilities to each other based on their strengths."
     }
+}
+```
+
 }
 ```
