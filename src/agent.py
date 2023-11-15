@@ -5,7 +5,7 @@ from api import API
 
 def operation1_that_could_fail():
     """
-    This function simulates an operation that could fail. It doesn't take any inputs or produce any outputs.
+    This function simulates an operation that could fail. It doesn't take any inputs or produce any outputs. It has a side effect of potentially raising a BadRequestError.
     """
 =======
 =======
@@ -40,7 +40,7 @@ new line(s) to replace
 =======
 def operation2_that_could_fail():
     """
-    This function simulates another operation that could fail. It doesn't take any inputs or produce any outputs.
+    This function simulates another operation that could fail. It doesn't take any inputs or produce any outputs. It has a side effect of potentially raising a BadRequestError.
     """
     raise Exception("Operation 1 failed")
 =======
