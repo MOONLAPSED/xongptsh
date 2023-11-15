@@ -21,27 +21,19 @@ class UnixFilesystem(Iteration):
     unit_file_addr (str): The unit_file_addr of the filesystem.
     size (str): The size of the filesystem.
     mtime (str): The mtime of the filesystem.
-    atime (str): The atime of the filesystem.
-    """
-
-    def __init__(
-        self,
-        inode,
-        pathname,
-        filetype,
-        permissions,
-        owner,
-        group_id,
-        PID,
-        unit_file,
-        unit_file_addr,
-        size,
-        mtime,
-        atime,
-    ):
-        """
-        This method initializes a UnixFilesystem object.
-
+    def __init__(self, inode, pathname, filetype, permissions, owner, group_id, PID, unit_file, unit_file_addr, size, mtime, atime):
+        super().__init__(inode, "Unix filesystem")
+        self.pathname = pathname
+        self.filetype = filetype
+        self.permissions = permissions
+        self.owner = owner
+        self.group_id = group_id
+        self.size = size
+        self.PID = PID
+        self.unit_file = unit_file  # or name of process or daemon or service
+        self.unit_file_addr = unit_file_addr  # or symlink/pointer to process or daemon or service
+        self.mtime = mtime
+        self.atime = atime
         Parameters:
         inode (str): The inode of the filesystem.
         pathname (str): The pathname of the filesystem.
@@ -56,21 +48,7 @@ class UnixFilesystem(Iteration):
         mtime (str): The mtime of the filesystem.
         atime (str): The atime of the filesystem.
         """
-        super().__init__(inode, "Unix filesystem")
-        self.pathname = pathname
-        self.filetype = filetype
-        self.permissions = permissions
-        self.owner = owner
-        self.group_id = group_id
-        self.size = size
-        self.PID = PID
-        self.unit_file = unit_file  # or name of process or daemon or service
-        self.unit_file_addr = (
-            unit_file_addr  # or symlink/pointer to process or daemon or service
-        )
-        self.mtime = mtime
-        self.atime = atime
-
+        return "{}: {}".format(self.inode, self.pathname)
     def __str__(self):
         """
         This method returns a string representation of the UnixFilesystem object.
