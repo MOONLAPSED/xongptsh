@@ -12,10 +12,9 @@ taskbot["modes"] = {
     "base_model": "OpenAI Codex" 
   },
   "instruct": {  
-    "description": "Responds contextually using NLP and code examples for teaching"
-  "debug": {
-    "description": "Provides step-by-step reasoning with self-critical error checking"
-}
+    "description": "Responds contextually using NLP and code examples for teaching", 
+    "suppress_default": True
+  },
 =======
 }
   },
