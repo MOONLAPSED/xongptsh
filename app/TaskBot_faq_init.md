@@ -44,6 +44,9 @@ TaskBot.faq
         ...
       },
       "Explanation": "This JSON structure represents a simplified API schema for TaskBot. Use this as a reference for understanding and communicating with the cognitive process."
+      }
+      }
+      }
     }
   }
 }
