@@ -1,2 +1,1 @@
-The contents of the new file. NEVER write comments. All functions and classes will be fully implemented.
-When writing unit tests, they will be complete, extensive, and cover ALL edge cases. You will make up data for unit tests. Create mocks when necessary.
+The contents of the new file. This file contains utility functions and classes for testing purposes. When writing unit tests, make sure to cover all edge cases and create mocks when necessary.
