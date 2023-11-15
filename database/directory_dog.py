@@ -35,12 +35,10 @@ def create_tables(cursor):
                 )
                 """
             )
-        except sqlite3.OperationalError:
+        except sqlite3.OperationalError as e:
+            print(f"Error creating tables: {e}")
             if retry_count >= max_retries - 1:
                 raise
-            else:
-                delay = base_delay * (2 ** retry_count)
-                time.sleep(delay)
 
 
 def insert_data(cursor):
