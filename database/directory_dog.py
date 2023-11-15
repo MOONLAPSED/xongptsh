@@ -67,10 +67,10 @@ def insert_data(cursor):
                 """
             )
             cursor.execute(
-                """
-                INSERT INTO users (name, email)
-                VALUES ('user1', 'user1@example.com')
-                """
+            """
+            INSERT INTO users (name, email)
+            VALUES ('user1', 'user1@example.com')
+            """
             )
         except sqlite3.OperationalError:
             if retry_count >= max_retries - 1:
