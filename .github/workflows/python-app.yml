@@ -37,8 +37,10 @@ jobs:
 
     steps:
       - name: Build
-        # Commented out: Build steps
-        
+        run: |
+          echo "Building application..."
+          # Your build commands here
+
   test:
     runs-on: ubuntu-latest
 
@@ -58,4 +60,6 @@ jobs:
   
     steps:
       - name: Deploy
-        # Commented out: Deploy steps
+        run: |
+          echo "Deploying application..."
+          # Your deployment commands here
