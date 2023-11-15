@@ -33,13 +33,15 @@ jobs:
         pip install -r requirements.txt
         
   build:
+    runs-on: ubuntu-latest
 
     steps:
     - name: Build
-      run: |
-        # Build steps    
+      # run: |
+        # Build steps (commented out)
         
   test:
+    runs-on: ubuntu-latest
 
     steps:    
     - name: Test with pytest
@@ -53,8 +55,9 @@ jobs:
          path: test-output/
          
   deploy:
+    runs-on: ubuntu-latest
   
     steps:
     - name: Deploy
       run: |
-        # Deploy steps
+        # Deploy steps (commented out)
