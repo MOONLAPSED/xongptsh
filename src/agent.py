@@ -26,3 +26,27 @@ def test_agent_main(mocker):
     mocker.patch('agent.operation2_that_could_fail', side_effect=Exception)
     with pytest.raises(Exception, match="Operation failed after 10 retries"):
         agent_main()
+"""
+This function tests the main function for the agent. It uses a mocker to simulate the operations that could fail always failing. It checks that the main function raises an exception after 10 failed attempts.
+
+The function takes a mocker as an input. It doesn't produce any outputs. It has a side effect of potentially raising an exception.
+"""
+=======
+"""
+This is the main function for the agent. It repeatedly tries to execute two operations that could fail. If an operation fails, it retries the operation using exponential backoff. If an operation fails 10 times in a row, it raises an exception.
+
+The function doesn't take any inputs or produce any outputs. It has a side effect of potentially raising an exception.
+"""
+=======
+"""
+This function simulates another operation that could fail. It doesn't take any inputs or produce any outputs.
+"""
+=======
+"""
+This function simulates an operation that could fail. It doesn't take any inputs or produce any outputs.
+"""
+=======
+"""
+This module contains functions that simulate operations that could fail and a main agent function that retries these operations using exponential backoff.
+"""
+=======
