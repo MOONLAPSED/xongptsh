@@ -43,18 +43,11 @@ def create_tables(cursor):
                 )
                 """
             )
-        except sqlite3.OperationalError:
+        except sqlite3.OperationalError as e:
+            print(f"Error creating tables: {e}")
             if retry_count >= max_retries - 1:
                 raise
-            def create_tables(cursor):
-                """
-                Creates the necessary tables in the SQLite database. 
-                The `cursor` parameter should be a SQLite cursor object.
-                """
-                max_retries = 5
-                base_delay = 1
-                for retry_count in range(max_retries):
-                    try:
+
                 cursor.execute(
                 """
                 INSERT INTO directories (name, path, created_at, modified_at)
