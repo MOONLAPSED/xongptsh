@@ -52,12 +52,26 @@ class UnixFilesystem(Iteration):
     def __str__(self):
         """
         This method returns a string representation of the UnixFilesystem object.
-
-        Parameters:
-        None
-
+        
         Returns:
         str: A string representation of the UnixFilesystem object in the format "inode: pathname".
+        """
+        logger = logging.getLogger(__name__)
+        logger.debug("Debug information: {}".format(self.inode))
+        return "{}: {}".format(self.inode, self.pathname)
+        pathname,
+        filetype,
+        permissions,
+        owner,
+        group_id,
+        PID,
+        unit_file,
+        unit_file_addr,
+        size,
+        mtime,
+        atime,
+    ):
+        This logging statement provides debug information for the UnixFilesystem object.
         """
         logger = logging.getLogger(__name__)
         logger.debug("Debug information: {}".format(self.inode))
