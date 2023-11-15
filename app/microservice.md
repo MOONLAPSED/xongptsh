@@ -1,3 +1,7 @@
+"""
+this microservice utilizes multiple AI chatbot agents with language processing functionality to clean and tokenize chat conversations within a simulated chat interface. This microservice shows its work and the reasoning behind its every change and action. This creates a chain which can be traced by future agents and eventually vectored and stored in a db. The bootstrapping process provides the agent with necessary information to start functioning and learning on its own. The microservice expects an initial prompt, and specified work as input. The microservice attempts to instantiate a loop using the tools available to it to accomplish a task working towards the work. If unable to, the agent will increment the chain of though loop count,
+"""
+
 The microservice implements an iterative refinement process for multiple AI agents to collaboratively fulfill a specified {prompt}.
 
 Each agent follows an {output schema} with:
