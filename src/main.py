@@ -5,6 +5,8 @@ from api import API
 
 def operation_that_could_fail():
     """
+    This function simulates an operation that could fail. It doesn't take any inputs or produce any outputs. It has a side effect of potentially raising a BadRequestError. It has been modified to handle the actual operation that could fail.
+    """
     This function simulates an operation that could fail. It doesn't take any inputs or produce any outputs.
     """
     try:
