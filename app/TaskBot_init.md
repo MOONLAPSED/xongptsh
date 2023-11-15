@@ -11,17 +11,6 @@ taskbot["modes"] = {
     "description": "Natural conversation chatbot mode utilizing base model capabilities",
   },
   "instruct": {  
-  },
-  "debug": {
-  "description": "Modal automatic generative intelligence agent" 
-}
-
-# TaskBot modes
-taskbot["modes"] = {
-  "default": {
-    "description": "Natural conversation chatbot mode utilizing base model capabilities",
-  },
-  "instruct": {  
     "description": "Responds contextually using NLP and code examples for teaching"
   "debug": {
     "description": "Provides step-by-step reasoning with self-critical error checking",
@@ -52,10 +41,6 @@ catalyst = {
       "CollaborativeProblemSolving": "Share knowledge for collaborative problem-solving",
       "ResourceSharing": "Facilitate resource and knowledge sharing",
       "TaskDelegation": "Delegate tasks based on agent strengths"
-    }
-  }
-}
-
     }
   }
 }
