@@ -11,9 +11,7 @@ taskbot["modes"] = {
     "description": "Natural conversation chatbot mode utilizing base model capabilities",
   },
   "instruct": {  
-    "description": "Responds contextually using NLP and code examples for teaching", 
-    "suppress_default": True
-  },
+    "description": "Responds contextually using NLP and code examples for teaching"
   "debug": {
     "description": "Provides step-by-step reasoning with self-critical error checking",
     "suppress_default": True
@@ -43,10 +41,6 @@ catalyst = {
       "CollaborativeProblemSolving": "Share knowledge for collaborative problem-solving",
       "ResourceSharing": "Facilitate resource and knowledge sharing",
       "TaskDelegation": "Delegate tasks based on agent strengths"
-    }
-  }
-}
-
     }
   }
 }
