@@ -48,7 +48,7 @@ def insert_data(cursor):
     base_delay = 1
     for retry_count in range(max_retries):
         try:
-                cursor.execute(
+            sql_insert_statements = [
                 """
                 INSERT INTO directories (name, path, created_at, modified_at)
                 VALUES ('dir1', '/path/to/dir1', '2021-01-01', '2021-01-02')
@@ -143,54 +143,70 @@ This module provides functions for creating and interacting with a SQLite databa
 
 
 def insert_data(cursor):
-    cursor.execute(
-        """
+    sql_insert_statements.extend([
+        ("""
         INSERT INTO files (name, path, size, created_at, modified_at)
-        VALUES ('file1.txt', '/path/to/file1.txt', 100, '2021-01-01', '2021-01-02')
-        """
-    )
-
-    cursor.execute(
-        """
+        VALUES (?, ?, ?, ?, ?)
+        """, ('file1.txt', '/path/to/file1.txt', 100, '2021-01-01', '2021-01-02')),
+        ("""
         INSERT INTO files (name, path, size, created_at, modified_at)
-        VALUES ('file2.txt', '/path/to/file2.txt', 200, '2021-01-03', '2021-01-04')
-        """
-    )
-
-    cursor.execute(
-        """
+        VALUES (?, ?, ?, ?, ?)
+        """, ('file2.txt', '/path/to/file2.txt', 200, '2021-01-03', '2021-01-04')),
+        ("""
         INSERT INTO directories (name, path, created_at, modified_at)
+        VALUES (?, ?, ?, ?)
+        """, ('dir2', '/path/to/dir2', '2021-01-03', '2021-01-04')),
+    ])
+    for sql, values in sql_insert_statements:
+        cursor.execute(sql, values)
+
+                ("""
+                INSERT INTO directories (name, path, created_at, modified_at)
+                VALUES (?, ?, ?, ?)
+                """, ('dir1', '/path/to/dir1', '2021-01-01', '2021-01-02')),
+                ("""
+                INSERT INTO permissions (file_id, user_id, permission)
+                VALUES (?, ?, ?)
+                """, (1, 1, 'read')),
+                ("""
+                INSERT INTO permissions (file_id, user_id, permission)
+                VALUES (?, ?, ?)
+                """, (2, 2, 'write')),
+                ("""
+                INSERT INTO users (name, email)
+                VALUES (?, ?)
+                """, ('user1', 'user1@example.com')),
+            ]
+            for sql, values in sql_insert_statements:
+                cursor.execute(sql, values)
+        except sqlite3.OperationalError:
+            if retry_count >= max_retries - 1:
+                raise
+            else:
         VALUES ('dir2', '/path/to/dir2', '2021-01-03', '2021-01-04')
         """
     )
 
-    cursor.execute(
-        """
+    sql_insert_statements.extend([
+        ("""
         INSERT INTO permissions (file_id, user_id, permission)
-        VALUES (1, 1, 'read')
-        """
-    )
-
-    cursor.execute(
-        """
+        VALUES (?, ?, ?)
+        """, (1, 1, 'read')),
+        ("""
         INSERT INTO permissions (file_id, user_id, permission)
-        VALUES (2, 2, 'write')
-        """
-    )
-
-    cursor.execute(
-        """
+        VALUES (?, ?, ?)
+        """, (2, 2, 'write')),
+        ("""
         INSERT INTO users (name, email)
-        VALUES ('user1', 'user1@example.com')
-        """
-    )
-
-    cursor.execute(
-        """
+        VALUES (?, ?)
+        """, ('user1', 'user1@example.com')),
+        ("""
         INSERT INTO users (name, email)
-        VALUES ('user2', 'user2@example.com')
-        """
-    )
+        VALUES (?, ?)
+        """, ('user2', 'user2@example.com')),
+    ])
+    for sql, values in sql_insert_statements:
+        cursor.execute(sql, values)
 
 
 def close_connection(conn):
