@@ -24,6 +24,13 @@ run_setup() {
 	counter=$((counter + 1))
 	timestamp=${current_time}
 
+	# Check if job has been run too many times within timeframe
+	current_time=$(get_time)
+	if [[ $((current_time - timestamp)) -lt ${timeframe} ]] && [[ ${counter} -ge ${limit} ]]; then
+	    echo "Error: Setup job has been run too many times. Please wait and try again."
+	    exit 1
+	fi
+	
 	# Run setup job
 	echo "Running setup job..."
 	# Add setup job code here
