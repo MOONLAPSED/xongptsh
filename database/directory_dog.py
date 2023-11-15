@@ -44,20 +44,6 @@ def create_tables(cursor):
                 delay = base_delay * (2 ** retry_count)
                 time.sleep(delay)
 
-    cursor.execute(
-    base_delay = 1
-    for retry_count in range(max_retries):
-        try:
-            conn = sqlite3.connect(db_name)
-            cursor = conn.cursor()
-            return conn, cursor
-        except sqlite3.OperationalError:
-            if retry_count >= max_retries - 1:
-                raise
-            else:
-                delay = base_delay * (2 ** retry_count)
-                time.sleep(delay)
-
 
 def create_tables(cursor):
     cursor.execute(
@@ -84,10 +70,6 @@ def create_tables(cursor):
         )
     """
     )
-
-    for retry_count in range(max_retries):
-        try:
-            cursor.execute(
         """
         CREATE TABLE IF NOT EXISTS permissions (
             id INTEGER PRIMARY KEY,
