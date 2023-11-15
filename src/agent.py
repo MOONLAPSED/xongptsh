@@ -44,9 +44,9 @@ new line(s) to replace
 =======
 def operation2_that_could_fail():
     """
-    This function simulates another operation that could fail. It doesn't take any inputs or produce any outputs.
+    This function simulates an operation that could fail. It doesn't take any inputs or produce any outputs. If called, it raises an exception with the message 'Operation 2 failed'.
     """
-    raise Exception("Operation 1 failed")
+    raise Exception("Operation 2 failed")
 =======
 """
 =======
@@ -118,23 +118,8 @@ new line(s) to replace
 =======
 def agent_main():
     """
-    This is the main function for the agent. It repeatedly tries to execute two operations that could fail. If an operation fails, it retries the operation using exponential backoff. If an operation fails 10 times in a row, it raises an exception.
-
-    The function doesn't take any inputs or produce any outputs. It has a side effect of potentially raising an exception.
+    This is the main function for the agent. It is intended to repeatedly try to execute two operations that could fail. If an operation fails, it should retry the operation using exponential backoff. If an operation fails 10 times in a row, it should raise an exception. Currently, this function is not implemented.
     """
-    api = API()
-    retries = 0
-    while retries < 10:
-        try:
-            api.handle_event(operation1_that_could_fail())
-            api.handle_event(operation2_that_could_fail())
-            break
-        except Exception as e:
-            retries += 1
-            wait_time = exponential_backoff(retries)
-            time.sleep(wait_time)
-    if retries >= 10:
-        raise FallbackError()
         try:
             api.handle_event(operation1_that_could_fail())
             api.handle_event(operation2_that_could_fail())
