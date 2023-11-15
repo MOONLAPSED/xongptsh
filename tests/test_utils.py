@@ -1,1 +1,11 @@
-The contents of the new file. This file contains utility functions and classes for testing purposes. When writing unit tests, make sure to cover all edge cases and create mocks when necessary.
+def public_function(arg1, arg2):
+    """
+    Description of the function.
+
+    Args:
+        arg1 (type): Description of arg1.
+        arg2 (type): Description of arg2.
+
+    Returns:
+        type: Description of the return value.
+    """
