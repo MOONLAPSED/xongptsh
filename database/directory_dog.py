@@ -8,6 +8,10 @@ def create_database(db_name):
 
 
 def create_tables(cursor):
+    """
+    Creates the necessary tables in the SQLite database. 
+    The `cursor` parameter should be a SQLite cursor object.
+    """
     cursor.execute(
         """
         CREATE TABLE IF NOT EXISTS files (
@@ -128,6 +132,10 @@ def close_connection(conn):
 
 
 def main():
+    """
+    Main function that creates a new SQLite database, creates the necessary tables, inserts sample data, 
+    and then closes the connection.
+    """
     conn, cursor = create_database("unix_file_system.db")
     create_tables(cursor)
     insert_data(cursor)
