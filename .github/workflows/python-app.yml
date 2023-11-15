@@ -1,4 +1,4 @@
-name: Python CI
+name: python-app
 
 on: 
   push:
@@ -36,26 +36,26 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-    - name: Build
-      # Commented out: Build steps
+      - name: Build
+        # Commented out: Build steps
         
   test:
     runs-on: ubuntu-latest
 
     steps:    
-    - name: Test with pytest
-      run: |
-        pytest
+      - name: Test with pytest
+        run: |
+          pytest
         
-    - name: Archive test output 
-      uses: actions/upload-artifact@v3
-      with:
-         name: test-output
-         path: test-output/
+      - name: Archive test output 
+        uses: actions/upload-artifact@v3
+        with:
+           name: test-output
+           path: test-output/
          
   deploy:
     runs-on: ubuntu-latest
   
     steps:
-    - name: Deploy
-      # Commented out: Deploy steps
+      - name: Deploy
+        # Commented out: Deploy steps
