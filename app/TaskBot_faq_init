@@ -37,15 +37,17 @@
           "PayloadExchange": "Agrees upon a standard payload format for exchanging information.",
           "ProcessingRules": "Defines how agents should process received payloads and responses.",
           "ErrorHandling": "Establishes protocols for error handling and recovery during communication failures."
+          "RealTimeAdaptation",
+          "CompatibilityAssessment",
+          "NegotiationCapabilities"
         ]
       },
       {
         "name": "ReturnCodes",
         "Explanation": "Describes the return codes used by TaskBot to indicate the status of operations.",
         "SubSections": [
-          "RealTimeAdaptation",
-          "CompatibilityAssessment",
-          "NegotiationCapabilities"
+        "See \"TaskBot\" API specification in this, the app dir."
+        "API schema includes return codes and many important details for runtime/runtime-agents."
         ]
       }
     ]
