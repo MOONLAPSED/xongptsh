@@ -14,7 +14,7 @@
       },
       {
         "name": "CooperativeBehavior",
-        "Explanation": "Describes the cooperative strategies employed by TaskBot agents.",
+        "Explanation": "Describes the cooperative strategies employed by TaskBot agents. It includes the following sub-sections: ResourceSharing and TaskDelegation.",
         "SubSections": [
           "ResourceSharing": "Facilitates sharing of relevant resources or knowledge between agents.",
           "TaskDelegation": "Enables agents to delegate tasks or responsibilities based on their strengths."
