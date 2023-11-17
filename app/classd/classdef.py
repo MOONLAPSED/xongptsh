@@ -31,11 +31,50 @@ class Entity_:
         self.description = description
 
 class Kerneltuple_:
-class Kerneltuple_:
+class Attribute_(Entity_):
     """
-    The Kerneltuple_ class represents a kernel tuple with attributes and values.
+    The Attribute_ class represents an attribute with a name and a description.
 
     Attributes:
+    name (str): The name of the attribute.
+    description (str): The description of the attribute.
+    """
+    # abc
+    def __init__(self, **kwargs):
+        self.attributes = kwargs.keys()
+        self.values = kwargs.values()
+
+    def __str__(self):
+        return str(self.values)
+
+    def __repr__(self):
+        if self.values == []:
+            return "Kerneltuple_()"
+        else:
+            return "Kerneltuple_({})".format(str(self.values)[1:-1])
+    
+    def create_instance(self, **kwargs):
+        """
+        Create a new instance of the Kerneltuple class with the given keyword arguments.
+        
+        Parameters:
+        - kwargs: A dictionary of keyword arguments to initialize the Kerneltuple instance.
+        
+        Returns:
+        - The newly created Kerneltuple instance.
+        
+        Raises:
+        - Exception: If an error occurs during the creation of the Kerneltuple instance.
+        """
+        retry_count = 0
+        while retry_count < MAX_RETRIES:
+            try:
+                return Kerneltuple_(**kwargs)
+            except Exception as e:
+                retry_count += 1
+                time.sleep(2 ** retry_count)
+        # Handle failure case here
+        return None
     attributes (list): The list of attributes.
     values (list): The list of values.
     """
