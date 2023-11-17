@@ -45,6 +45,10 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
+      - name: Create src directory (if needed)
+        run: |
+          mkdir -p /home/runner/work/xongptsh/xongptsh/src
+
       - name: Test with pytest
         run: |
           cd /home/runner/work/xongptsh/xongptsh/src # Navigate to the directory
@@ -60,10 +64,10 @@ jobs:
         uses: actions/download-artifact@v2
         with:
           name: test-output
-          path: downloaded-artifact # Path to download the artifact
+          path: downloaded_artifact # Path to download the artifact
 
       - name: Display downloaded artifact content
-        run: cat downloaded-artifact/test-output.txt # Display the content of the downloaded artifact
+        run: cat downloaded_artifact/test-output.txt # Display the content of the downloaded artifact
 
   deploy:
     runs-on: ubuntu-latest
