@@ -1,8 +1,4 @@
-"""
-This module contains the main function that initializes the logger and creates an instance of the Entity class. 
-It also handles keyboard interrupts and system exits.
-"""
-===tests=================
+==========
 # Define test cases for the Entity class
 entity_test_cases = [
     {
