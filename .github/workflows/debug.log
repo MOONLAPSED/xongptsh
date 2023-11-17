@@ -1,0 +1,1 @@
+There is no new file to create as part of this request. The changes are made to the existing `.github/workflows/python-app.yml` file to redirect the debug information to the "debug.log" file.
