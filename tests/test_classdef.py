@@ -2,7 +2,7 @@
 
 import unittest
 
-from app.classd.classdef import Attribute_
+from app.classd.classdef import Attribute_, SpecificException
 
 
 class TestAttribute(unittest.TestCase):
