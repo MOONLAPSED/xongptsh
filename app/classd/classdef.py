@@ -31,4 +31,26 @@ class Kerneltuple_:
         if self.values == []:
             return "Kerneltuple_()"
         else:
+        return "Kerneltuple_({})".format(str(self.values)[1:-1])
+    def create_instance(self, **kwargs):
+        retry_count = 0
+        while retry_count < MAX_RETRIES:
+            try:
+                return Kerneltuple_(**kwargs)
+            except Exception as e:
+                retry_count += 1
+                time.sleep(2 ** retry_count)
+        # Handle failure case here
+        return None
+        return "Kerneltuple_({})".format(str(self.values)[1:-1])
             return "Kerneltuple_({})".format(str(self.values)[1:-1])
+    def create_instance(self, **kwargs):
+        retry_count = 0
+        while retry_count < MAX_RETRIES:
+            try:
+                return Kerneltuple_(**kwargs)
+            except Exception as e:
+                retry_count += 1
+                time.sleep(2 ** retry_count)
+        # Handle failure case here
+        return None
