@@ -28,11 +28,15 @@ jobs:
           restore-keys: |
             ${{ runner.os }}-pip-
 
-      - name: Upload main.py artifact
+      - name: Save main.py as artifact
+        run: echo "::set-output name=filename::main.py"
+        id: save-main-py
+
+      - name: Upload main.py as artifact
         uses: actions/upload-artifact@v2
         with:
           name: main-py
-          path: main.py
+          path: ${{ steps.save-main-py.outputs.filename }}
 
   build:
     runs-on: ubuntu-latest
