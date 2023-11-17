@@ -35,6 +35,7 @@ class TestMain(unittest.TestCase):
         pass
         with open("main.py", "w") as f:
             f.write("Some content")
+import os
     def test_new_business_logic(self):
         # Add unit tests for new business logic here
         # Test case 1
