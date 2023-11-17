@@ -18,6 +18,12 @@ from app.classd.classdef import Entity, Kerneltuple_
 
 """
 This module provides functionality for <module purpose>.
+
+Args:
+    None
+
+Returns:
+    None
 """
 
 # ==========tests=================
@@ -40,7 +46,6 @@ for test_case in entity_test_cases:
     Args:
         name (str): The name of the entity.
         description (str): The description of the entity.
-
     Returns:
         Entity: An instance of the Entity class.
     """
@@ -74,6 +79,15 @@ kernel_tuple_test_cases = [
         'permissions': 'some_permissions_value',
         'owner': 'some_owner_value',
         'group_id': 'some_group_id_value',
+    """
+    Print the name and description of the entity.
+
+    Args:
+        None
+
+    Returns:
+        None
+    """
         'PID': 'some_PID_value',
         'unit_file': 'some_unit_file_value',
         'unit_file_addr': 'some_unit_file_addr_value',
