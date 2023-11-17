@@ -6,6 +6,7 @@ def operation_that_could_fail():
     """
     # Function code here
 
+
 def main():
     """
     The main function.
