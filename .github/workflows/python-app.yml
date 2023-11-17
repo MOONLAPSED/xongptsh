@@ -42,7 +42,7 @@ jobs:
         uses: actions/download-artifact@v2
         with:
           name: main-py
-          path: . # Save in the current directory
+          path: ./app # Save in the current directory
 
       - name: Build
         run: |
