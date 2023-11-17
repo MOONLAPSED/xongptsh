@@ -1,4 +1,4 @@
-/* SQL DB API SPEC FOR xongptsh  by moonlaosed@github MIT license
+/* SQL DB API SPEC FOR xongptsh  by moonlapsed@github MIT license
 =================================================================================
 Entity - A data model that defines the system, with relationships to other entities. An entity is not an instance of an object, but rather a definition or blueprint.
 
