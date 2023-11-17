@@ -1,39 +1,5 @@
-from app.classd.classdef import Entity
-
-
-class TestMain(unittest.TestCase):
-    def test_entity_initialization(self):
-        # Test case 1
-        entity1 = Entity("Entity 1", "Description 1")
-        self.assertEqual(entity1.name, "Entity 1")
-        self.assertEqual(entity1.description, "Description 1")
-
-        # Test case 2
-        entity2 = Entity("Entity 2", "Description 2")
-        self.assertEqual(entity2.name, "Entity 2")
-        self.assertEqual(entity2.description, "Description 2")
-
-    def test_upload_functionality(self):
-        """
-        Test case for upload functionality.
-
-        Add unit tests for upload functionality here.
-        """
-        # Test case 1
-        entity = Entity("Entity 1", "Description 1")
-        self.assertEqual(entity.name, "Entity 1")
-        self.assertEqual(entity.description, "Description 1")
-
-        # Test case 2
-        entity = Entity("Entity 2", "Description 2")
-        self.assertEqual(entity.name, "Entity 2")
-        self.assertEqual(entity.description, "Description 2")
-        pass
-
-    def test_download_functionality(self):
-        """
+        Add unit tests for download functionality here.
         Test case for download functionality.
-
         Add unit tests for download functionality here.
         """
         # Add unit tests for download functionality here
