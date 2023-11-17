@@ -15,5 +15,6 @@ class TestMain(unittest.TestCase):
         self.assertEqual(entity2.name, "Entity 2")
         self.assertEqual(entity2.description, "Description 2")
 
-if __name__ == '__main__':
+
+if __name__ == "__main__":
     unittest.main()
