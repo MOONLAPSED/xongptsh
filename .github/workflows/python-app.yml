@@ -50,10 +50,22 @@ jobs:
       
           python main.py > test-output.txt  # Execute main.py using python notation
 
+      - name: Upload main.py artifact
+        uses: actions/upload-artifact@v2
+        with:
+          name: main-py
+          path: main.py
+
       - name: Archive test output
         if: success()
         run: |
           cp test-output.txt $GITHUB_WORKSPACE/test-output.txt
+
+      - name: Download main.py artifact
+        uses: actions/download-artifact@v2
+        with:
+          name: main-py
+          path: .
 
   deploy:
     runs-on: ubuntu-latest
@@ -63,3 +75,23 @@ jobs:
         run: |
           echo "Deploying application..."
           # Your deployment commands here
+  test:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Test with pytest
+        run: |
+          if [ ! -f "main.py" ]; then
+            echo "ERROR: File 'main.py' not found."
+            exit 1
+          fi
+      
+          python main.py > test-output.txt  # Execute main.py using python notation
+
+      - name: Archive test output
+        if: success()
+        run: |
+          cp test-output.txt $GITHUB_WORKSPACE/test-output.txt
+
+      - name: Display downloaded artifact content
+        run: cat test-output.txt # Display the content of the test output
