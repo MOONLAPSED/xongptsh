@@ -1,4 +1,5 @@
 from main import Kerneltuple_
+from app.classd.classdef_updated import Entity_
 
 
 class UnixFilesystem(Kerneltuple_, Entity_):
