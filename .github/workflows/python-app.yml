@@ -38,6 +38,12 @@ jobs:
           python -m pip install --upgrade pip
           pip install -r requirements.txt
 
+      - name: Download main.py artifact
+        uses: actions/download-artifact@v2
+        with:
+          name: main-py
+          path: downloaded-main.py
+
   build:
     runs-on: ubuntu-latest
 
@@ -51,12 +57,6 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Download main.py artifact
-        uses: actions/download-artifact@v2
-        with:
-          name: main-py
-          path: downloaded-main.py
-
       - name: Test with pytest
         run: |
           if [ ! -f "downloaded-main.py" ]; then
