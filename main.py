@@ -1,4 +1,23 @@
-===tests=================
+==========
+# Define test cases for the Entity class
+entity_test_cases = [
+    {
+        "name": "Entity 1",
+        "description": "Description 1"
+    },
+    {
+        "name": "Entity 2",
+        "description": "Description 2"
+    }
+]
+
+for test_case in entity_test_cases:
+    entity = Entity(test_case["name"], test_case["description"])
+    print(entity.name)
+    print(entity.description)
+
+kernel_tuple_test_cases = [
+=======
 # Define test cases for the Entity class
 entity_test_cases = [
     {
