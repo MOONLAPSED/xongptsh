@@ -56,6 +56,8 @@ from app.classd.classdef import Kerneltuple_
     @app.doc('update_entity')
     def put(self, entity_id):
         """
+from app.classd.classdef import Entity
+from app.classd.classdef import Kerneltuple_
         Update an entity by ID.
 
         Parameters:
