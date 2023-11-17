@@ -39,7 +39,6 @@ class Entity_:
         str: A string representation of the Entity_ object.
         """
         return "Entity_(name='{}', description='{}')".format(self.name, self.description)
-        return "Entity_(name='{}', description='{}', new_keyword='{}')".format(self.name, self.description, self.new_keyword)
 
 class Kerneltuple_:
     """
