@@ -85,6 +85,7 @@ kernel_tuple_test_cases = [
         'size': 'some_size_value',
         'mtime': 'some_mtime_value',
         'atime': 'some_atime_value'
+        'atime': 'some_atime_value'
     },
 ]
 # These test cases are used to test the Kerneltuple_ class by creating instances of the class and printing their attributes.
