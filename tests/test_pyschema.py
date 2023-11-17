@@ -1,1 +1,1 @@
-
+    # Remove redundant test function
