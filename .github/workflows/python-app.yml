@@ -58,8 +58,9 @@ jobs:
             echo "ERROR: File 'main.py' not found."
             exit 1
           fi
+      
+          ./main.py > test-output.txt  # Execute main.py using ./ notation
 
-          python main.py > test-output.txt # Redirect output to a file
 
       - name: Archive test output
         uses: actions/upload-artifact@v2
