@@ -13,83 +13,57 @@
         ]
       },
       {
-        "name": "CooperativeBehavior",
-        "Explanation": "Describes the cooperative strategies employed by TaskBot agents. It includes the following sub-sections: ResourceSharing and TaskDelegation.",
-        "SubSections": [
-          {
-            "ResourceSharing": "Facilitates sharing of relevant resources or knowledge between agents.",
-            "TaskDelegation": "Enables agents to delegate tasks or responsibilities based on their strengths."
-          }
-        ]
-      },
-      {
-        "name": "DynamicAdaptation",
-        "Explanation": "Outlines the mechanisms for agents to adapt to changing environments.",
-        "SubSections": [
-          {
-            "RealTimeAdaptation": "Enables agents to dynamically adapt to changing conversation contexts.",
-            "CompatibilityAssessment": "Evaluates each other's capabilities and adjusts communication accordingly.",
-            "NegotiationCapabilities": "Allows negotiation to refine or clarify payloads when misunderstandings occur."
-          }
-        ]
-      },
-      {
-        "name": "InterAgentCommunication",
-        "Explanation": "Defines the protocols and mechanisms for communication between agents.",
-        "SubSections": [
-          {
-            "TaskBot_FAQ": "Provides information about TaskBot's FAQ capabilities.",
-            "PayloadExchange": "Agrees upon a standard payload format for exchanging information.",
-            "ProcessingRules": "Defines how agents should process received payloads and responses.",
-            "ErrorHandling": "Establishes protocols for error handling and recovery during communication failures."
-          }
-        ]
-      },
-      {
         "name": "ReturnCodes",
         "Explanation": "Describes the return codes used by TaskBot to indicate the status of operations.",
         "SubSections": [
-          "RealTimeAdaptation",
-          "CompatibilityAssessment",
-          "NegotiationCapabilities"
-        ]
-      }
-        "Explanation": "Describes the cooperative strategies employed by TaskBot agents.",
-        "SubSections": [
-          "ResourceSharing": "Facilitates sharing of relevant resources or knowledge between agents.",
-          "TaskDelegation": "Enables agents to delegate tasks or responsibilities based on their strengths."
-        ]
-      },
-      {
-        "name": "DynamicAdaptation",
-        "Explanation": "Outlines the mechanisms for agents to adapt to changing environments.",
-        "SubSections": [
-          "RealTimeAdaptation": "Enables agents to dynamically adapt to changing conversation contexts.",
-          "CompatibilityAssessment": "Evaluates each other's capabilities and adjusts communication accordingly.",
-          "NegotiationCapabilities": "Allows negotiation to refine or clarify payloads when misunderstandings occur."
-        ]
-      },
-      {
-        "name": "InterAgentCommunication",
-        "Explanation": "Defines the protocols and mechanisms for communication between agents.",
-        "SubSections": [
-          "TaskBot_FAQ": "Provides information about TaskBot's FAQ capabilities.",
-          "PayloadExchange": "Agrees upon a standard payload format for exchanging information.",
-          "ProcessingRules": "Defines how agents should process received payloads and responses.",
-          "ErrorHandling": "Establishes protocols for error handling and recovery during communication failures."
-          "RealTimeAdaptation",
-          "CompatibilityAssessment",
-          "NegotiationCapabilities"
-        ]
-      },
-      {
-        "name": "ReturnCodes",
-        "Explanation": "Describes the return codes used by TaskBot to indicate the status of operations.",
-        "SubSections": [
-        "See \"TaskBot\" API specification in this, the app dir."
-        "API schema includes return codes and many important details for runtime/runtime-agents."
+          "See 'TaskBot' API specification in this, the app dir.",
+          "API schema includes return codes and many important details for runtime/runtime-agents."
         ]
       }
     ]
+  }
+}
+
+{
+  "TaskBot": {
+    "name": "TaskBot",
+    "type": "AGI",
+    "description": "Modal automatic generative intelligence agent",
+    "modes": {
+      "default": {
+        "description": "Natural conversation chatbot mode utilizing base model capabilities"
+      },
+      "instruct": {
+        "description": "Responds contextually using NLP and code examples for teaching"
+      },
+      "debug": {
+        "description": "Provides step-by-step reasoning with self-critical error checking",
+        "suppress_default": true
+      }
+    },
+    "faq": {
+      "explanation": "TaskBot is an AGI agent with default and specialized modes. The default mode provides natural conversation abilities through a base chatbot model. Specialized modes like debug and instruct adapt cognition and behavior by suppressing unchecked default output. Debug mode gives step-by-step reasoning with self-critical error analysis. Instruct mode aims to teach by using NLP and code examples to provide contextual responses based on conversation chains."
+    }
+  }
+}
+
+{
+  "catalyst": {
+    "InterAgentCommunication": {
+      "EstablishConnection": "Define protocols for connecting agents",
+      "PayloadExchange": "Standard payload format for information exchange",
+      "ProcessingRules": "Define payload and response processing protocols",
+      "ErrorHandling": "Protocols for error handling and recovery"
+    },
+    "DynamicAdaptation": {
+      "RealTimeAdaptation": "Enable real-time context adaptation",
+      "CompatibilityAssessment": "Evaluate and adjust for capability differences",
+      "NegotiationCapabilities": "Payload clarification when misunderstandings occur"
+    },
+    "CooperativeBehavior": {
+      "CollaborativeProblemSolving": "Share knowledge for collaborative problem-solving",
+      "ResourceSharing": "Facilitate resource and knowledge sharing",
+      "TaskDelegation": "Delegate tasks based on agent strengths"
+    }
   }
 }
