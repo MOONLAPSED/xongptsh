@@ -33,6 +33,12 @@ jobs:
         with:
           name: main-py
           path: main.py
+      
+      - name: Download main.py artifact
+        uses: actions/download-artifact@v2
+        with:
+          name: main-py
+          path: .
 
   build:
     runs-on: ubuntu-latest
