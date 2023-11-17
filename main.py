@@ -1,4 +1,4 @@
-import sys, os, logging, requests, sqlite3, subprocess, bs4, re, threading, argparse, asyncio, datetime, http.server, json, socketserver
+import sys, os, logging, requests, sqlite3, subprocess, re, threading, argparse, asyncio, datetime, http.server, json, socketserver, traceback
 from app.classd.classdef import Entity, Kerneltuple_
 
 entity_test_cases = [
