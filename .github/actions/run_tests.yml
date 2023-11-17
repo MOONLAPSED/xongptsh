@@ -1,0 +1,35 @@
+name: run_tests
+
+on:
+  push:
+    branches: [ "main" ]
+  pull_request:
+    branches: [ "main" ]
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Test with pytest
+        run: |
+          cd /home/runner/work/xongptsh/xongptsh/src
+          python main.py > test-output.txt
+        outputs:
+          name: test-output
+          path: test-output.txt
+
+      - name: Archive test output
+        uses: actions/upload-artifact@v2
+        with:
+          name: test-output
+          path: test-output.txt
+
+      - name: Download artifacts
+        uses: actions/download-artifact@v2
+        with:
+          name: test-output
+          path: downloaded-artifact
+
+      - name: Display downloaded artifact content
+        run: cat downloaded-artifact/test-output.txt
