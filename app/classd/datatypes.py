@@ -6,42 +6,42 @@ Each data type is represented as a separate class with its own initialization an
 from main import *
 
 # Define the specific data types as subclasses of Attribute # ==============================================================================
-class TEXT(Attribute):
+class TEXT(Attribute_):
     def __init__(self, name):
         super().__init__(name, "TEXT")
 
     def __str__(self):
         return "{}: TEXT".format(self.name)
 
-class INTEGER(Attribute):
+class INTEGER(Attribute_):
     def __init__(self, name):
         super().__init__(name, "INTEGER")
 
     def __str__(self):
         return "{}: INTEGER".format(self.name)
 
-class REAL(Attribute):
+class REAL(Attribute_):
     def __init__(self, name):
         super().__init__(name, "REAL")
 
     def __str__(self):
         return "{}: REAL".format(self.name)
 
-class BLOB(Attribute):
+class BLOB(Attribute_):
     def __init__(self, name):
         super().__init__(name, "BLOB")
 
     def __str__(self):
         return "{}: BLOB".format(self.name)
 
-class VARCHAR(Attribute):
+class VARCHAR(Attribute_):
     def __init__(self, name, length):
         super().__init__(name, "VARCHAR({})".format(length))
         self.length = length
 
     def __str__(self):
         return "{}: VARCHAR({})".format(self.name, self.length)
-class TEXT(Attribute):
+class TEXT(Attribute_):
     """
     This class represents a TEXT data type attribute. It is a subclass of the Attribute class.
 
@@ -66,7 +66,7 @@ class TEXT(Attribute):
         """
         return "{}: TEXT".format(self.name)
 
-class INTEGER(Attribute):
+class INTEGER(Attribute+):
     """
     This class represents an INTEGER data type attribute. It is a subclass of the Attribute class.
 
@@ -91,7 +91,7 @@ class INTEGER(Attribute):
         """
         return "{}: INTEGER".format(self.name)
 
-class REAL(Attribute):
+class REAL(Attribute_):
     """
     This class represents a REAL data type attribute. It is a subclass of the Attribute class.
 
@@ -116,7 +116,7 @@ class REAL(Attribute):
         """
         return "{}: REAL".format(self.name)
 
-class BLOB(Attribute):
+class BLOB(Attribute_):
     """
     This class represents a BLOB data type attribute. It is a subclass of the Attribute class.
 
@@ -141,7 +141,7 @@ class BLOB(Attribute):
         """
         return "{}: BLOB".format(self.name)
 
-class VARCHAR(Attribute):
+class VARCHAR(Attribute_):
     """
     This class represents a VARCHAR data type attribute. It is a subclass of the Attribute class.
 
