@@ -1,9 +1,7 @@
 import logging
-from main import Kerneltuple_
 
 logging.basicConfig(filename='debug.log', level=logging.DEBUG)
-
-class UnixFilesystem(Kerneltuple_):
+class UnixFilesystem(Kerneltuple_, Entity_):
     """
     The UnixFilesystem class represents a Unix filesystem.
 
