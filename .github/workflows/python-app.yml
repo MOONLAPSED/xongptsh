@@ -45,17 +45,14 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Create src directory (if needed)
-        run: |
-          mkdir -p /home/runner/work/xongptsh/xongptsh/src
       - name: Test with pytest
         run: |
           if [ ! -f "/home/runner/work/xongptsh/main.py" ]; then
             echo "ERROR: File 'main.py' not found."
             exit 1
           fi
-      
-          cd /home/runner/work/xongptsh # Navigate to the correct directory
+
+          cd /home/runner/work/xongptsh # Navigate to the directory
           python main.py > test-output.txt # Redirect output to a file
 
       - name: Archive test output
@@ -68,10 +65,10 @@ jobs:
         uses: actions/download-artifact@v2
         with:
           name: test-output
-          path: downloaded_artifact # Path to download the artifact
+          path: downloaded-artifact # Path to download the artifact
 
       - name: Display downloaded artifact content
-        run: cat downloaded_artifact/test-output.txt # Display the content of the downloaded artifact
+        run: cat downloaded-artifact/test-output.txt # Display the content of the downloaded artifact
 
   deploy:
     runs-on: ubuntu-latest
