@@ -22,7 +22,7 @@ class TestMain(unittest.TestCase):
 
     def test_download_functionality(self):
         # Add unit tests for download functionality here
-        # Create the 'main.py' file
+        pass
         with open("main.py", "w") as f:
             f.write("Some content")
         # Check if the file is created
