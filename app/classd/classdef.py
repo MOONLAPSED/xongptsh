@@ -59,3 +59,6 @@ class Kerneltuple_:
                 time.sleep(2 ** retry_count)
         # Handle failure case here
         return None
+
+class Attribute_(Entity_):
+    # abc

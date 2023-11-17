@@ -1,5 +1,5 @@
 import sys, os, logging, requests, sqlite3, subprocess, re, threading, argparse, asyncio, datetime, http.server, json, socketserver, traceback
-from app.classd.classdef import Entity, Kerneltuple_
+from app.classd.classdef import Entity_, Kerneltuple_
 
 entity_test_cases = [
     {
@@ -13,7 +13,7 @@ entity_test_cases = [
 ]
 
 for test_case in entity_test_cases:
-    entity = Entity(test_case["name"], test_case["description"])
+    entity = Entity_(test_case["name"], test_case["description"])
     print(entity.name)
     print(entity.description)
 
