@@ -126,11 +126,10 @@
         suite.addTest(unittest.makeSuite(TestUnixFilesystem))
         # Add unit tests for download functionality here
         pass
-        # Add newly created test files to test suite
-        suite.addTest(unittest.makeSuite(TestAttribute))
-        suite.addTest(unittest.makeSuite(TestTEXT))
-        suite.addTest(unittest.makeSuite(TestINTEGER))
-        suite.addTest(unittest.makeSuite(TestREAL))
-        suite.addTest(unittest.makeSuite(TestBLOB))
-        suite.addTest(unittest.makeSuite(TestVARCHAR))
-        suite.addTest(unittest.makeSuite(TestUnixFilesystem))
+
+        """
+        Test case for download functionality.
+
+        Add unit tests for download functionality here.
+        """
+

@@ -73,6 +73,22 @@ class UnixFilesystem(Kerneltuple_):
         self.filetype = filetype
         self.permissions = permissions
         self.owner = owner
+    super().__init__(Kerneltuple_, "Unix filesystem")
+    self.inode = inode
+    self.pathname = pathname
+    self.filetype = filetype
+    self.permissions = permissions
+    self.owner = owner
+    self.group_id = group_id
+    self.PID = PID
+    self.unit_file = unit_file
+    self.unit_file_addr = unit_file_addr
+    self.size = size
+    self.mtime = mtime
+    self.atime = atime
+
+    def __str__(self):
+        return f"{self.inode}: {self.pathname}"
         self.group_id = group_id
         self.PID = PID
         self.unit_file = unit_file
