@@ -73,7 +73,7 @@ jobs:
         uses: actions/download-artifact@v2
         with:
           name: test-output
-          path: downloaded-artifact # Path to download the artifact
+          path: downloaded_artifact # Path to download the artifact
 
       - name: Display downloaded artifact content
         run: cat downloaded_artifact/test_output.txt # Display the content of the downloaded artifact
