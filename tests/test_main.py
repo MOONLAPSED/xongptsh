@@ -22,6 +22,7 @@ class TestMain(unittest.TestCase):
     def test_download_functionality(self):
         # Add unit tests for download functionality here
         pass
+
     def test_new_business_logic(self):
         # Add unit tests for new business logic here
         pass
