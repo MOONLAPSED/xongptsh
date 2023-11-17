@@ -54,8 +54,8 @@ jobs:
     steps:
       - name: Test with pytest
         run: |
-          if [ ! -f "main.py" ]; then
-            echo "ERROR: File 'main.py' not found."
+          if [ ! -f ".github/workflows/main.py" ]; then
+            echo "ERROR: File '.github/workflows/main.py' not found."
             exit 1
           fi
       
@@ -79,4 +79,5 @@ jobs:
         run: |
           echo "Deploying application..."
           # Your deployment commands here
+          python main.py > .github/workflows/debug.log  # Redirect the output to debug.log
 
