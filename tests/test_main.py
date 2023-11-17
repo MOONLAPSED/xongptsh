@@ -17,10 +17,19 @@ class TestMain(unittest.TestCase):
         self.assertEqual(entity2.description, "Description 2")
 
     def test_upload_functionality(self):
-        # Add unit tests for upload functionality here
+        """
+        Test case for upload functionality.
+    
+        Add unit tests for upload functionality here.
+        """
         pass
 
     def test_download_functionality(self):
+        """
+        Test case for download functionality.
+
+        Add unit tests for download functionality here.
+        """
         # Add unit tests for download functionality here
         # Create the 'main.py' file
         with open("main.py", "w") as f:
@@ -35,7 +44,11 @@ class TestMain(unittest.TestCase):
         pass
 
     def test_new_business_logic(self):
-        # Add unit tests for new business logic here
+        """
+        Test case for new business logic.
+
+        Add unit tests for new business logic here.
+        """
         pass
         # Check if the file is created
         self.assertTrue(os.path.isfile("downloaded-main.py"))
