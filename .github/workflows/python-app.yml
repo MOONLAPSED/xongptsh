@@ -48,6 +48,12 @@ jobs:
           name: main-py
           path: ./app # Save in the current directory
 
+      - name: Upload main.py artifact
+        uses: actions/upload-artifact@v2
+        with:
+          name: main-py
+          path: main.py
+      
       - name: Build
         run: |
           echo "Building application..."
