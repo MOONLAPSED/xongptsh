@@ -29,7 +29,7 @@ class TestAttribute(unittest.TestCase):
 
     def test_exception_handling(self):
         attribute = Attribute_()
-        with self.assertRaises(Exception):
+        with self.assertRaises(SpecificException):
             attribute.create_instance(name="name", description="description")
 
 if __name__ == "__main__":
