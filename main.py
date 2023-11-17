@@ -16,7 +16,6 @@ import sys, os, logging, requests, sqlite3, subprocess, bs4, re, threading, argp
 from app.classd.classdef import Entity, Kerneltuple_
 
 # ==========tests=================
-# Define test cases for the Entity class
 entity_test_cases = [
     {
         "name": "Entity 1",
@@ -26,6 +25,16 @@ entity_test_cases = [
         "name": "Entity 2",
         "description": "Description 2"
     }
+]
+import sys, os, logging, requests, sqlite3, subprocess, bs4, re, threading, argparse, asyncio, datetime, http.server, json, socketserver
+
+# These test cases are used to test the Entity class by creating instances of the class and printing their attributes.
+from app.classd.classdef import Entity, Kerneltuple_
+
+# ==========tests=================
+# Define test cases for the Entity class
+entity_test_cases = [
+entity_test_cases = [
 ]
 # These test cases are used to test the Entity class by creating instances of the class and printing their attributes.
 """
@@ -35,19 +44,8 @@ from app.classd.classdef import Entity, Kerneltuple_
 
 # ==========tests=================
 # Define test cases for the Entity class
+===tests=================
 entity_test_cases = [
-# Define test cases for the Entity class
-entity_test_cases = [
-    {
-        "name": "Entity 1",
-        "description": "Description 1"
-    },
-    {
-        "name": "Entity 2",
-        "description": "Description 2"
-    }
-]
-# These test cases are used to test the Entity class by creating instances of the class and printing their attributes.
 api.upload_file('main.py')
 api.download_file('main.py')
 api.display_file_content('main.py')
