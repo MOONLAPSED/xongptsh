@@ -12,7 +12,8 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - uses: actions/checkout@v3
+      - name: Checkout code
+        uses: actions/checkout@v2
 
       - name: Upload main.py artifact
         uses: actions/upload-artifact@v2
@@ -33,16 +34,16 @@ jobs:
           restore-keys: |
             ${{ runner.os }}-pip-
 
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
       - name: Download main.py artifact
         uses: actions/download-artifact@v2
         with:
           name: main-py
           path: . # Save in the current directory
 
-  build:
-    runs-on: ubuntu-latest
-
-    steps:
       - name: Build
         run: |
           echo "Building application..."
@@ -52,6 +53,12 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
+      - name: Download main.py artifact
+        uses: actions/download-artifact@v2
+        with:
+          name: main-py
+          path: . # Save in the current directory
+
       - name: Test with pytest
         run: |
           if [ ! -f "main.py" ]; then
@@ -59,8 +66,7 @@ jobs:
             exit 1
           fi
       
-          ./main.py > test-output.txt  # Execute main.py using ./ notation
-
+          python main.py > test-output.txt  # Execute main.py using python notation
 
       - name: Archive test output
         uses: actions/upload-artifact@v2
@@ -75,8 +81,13 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
+      - name: Download main.py artifact
+        uses: actions/download-artifact@v2
+        with:
+          name: main-py
+          path: . # Save in the current directory
+
       - name: Deploy
         run: |
           echo "Deploying application..."
           # Your deployment commands here
-
