@@ -38,12 +38,6 @@ jobs:
         uses: actions/download-artifact@v2
         with:
           name: main-py
-          path: .
-      
-      - name: Download main.py artifact
-        uses: actions/download-artifact@v2
-        with:
-          name: main-py
           path: main.py
 
   build:
@@ -54,7 +48,7 @@ jobs:
         uses: actions/download-artifact@v2
         with:
           name: main-py
-          path: .
+          path: main.py
 
       - name: Upload main.py artifact
         uses: actions/upload-artifact@v2
