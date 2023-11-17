@@ -32,5 +32,6 @@ class TestAttribute(unittest.TestCase):
         with self.assertRaises(SpecificException):
             attribute.create_instance(name="name", description="description")
 
+
 if __name__ == "__main__":
     unittest.main()
