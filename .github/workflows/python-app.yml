@@ -28,22 +28,10 @@ jobs:
           restore-keys: |
             ${{ runner.os }}-pip-
 
-      - name: Upload main.py artifact
-        uses: actions/upload-artifact@v2
-        with:
-          name: main-py
-          path: main.py
-
   build:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Download main.py artifact
-        uses: actions/download-artifact@v2
-        with:
-          name: main-py
-          path: .
-
       - name: Build
         run: |
           echo "Building application..."
@@ -53,12 +41,6 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Download main.py artifact
-        uses: actions/download-artifact@v2
-        with:
-          name: main-py
-          path: .
-
       - name: Test with pytest
         run: |
           if [ ! -f "main.py" ]; then
@@ -70,24 +52,13 @@ jobs:
 
       - name: Archive test output
         if: success()
-        uses: actions/upload-artifact@v2
-        with:
-          name: test-output
-          path: test-output.txt
-
-      - name: Display downloaded artifact content
-        run: cat test-output.txt # Display the content of the test output
+        run: |
+          cp test-output.txt $GITHUB_WORKSPACE/test-output.txt
 
   deploy:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Download main.py artifact
-        uses: actions/download-artifact@v2
-        with:
-          name: main-py
-          path: .
-
       - name: Deploy
         run: |
           echo "Deploying application..."
