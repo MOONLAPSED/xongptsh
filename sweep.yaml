@@ -1,6 +1,6 @@
 gha_enabled: True
 branch: main
-blocked_dirs: [".github/"]
+blocked_dirs: ["dev/"]
 draft: False
 description: >
   MOONLAPSED/xongptsh is a low-level unix-only BASH/Python/C/KUBERNETES/Docker project involving NLP, chatbots, AI agents, and Linux File System (LFS) objects (including the whole gamut from basic cli and dir navigation to custom unit and systemd process files and kernel-level code). All attempts are made, in all situations, to NOT import code including libraries. Strong, strong preference is given to implementations using standard libraries in all but egregious situations. Utilizing SQLite3 and systemd, xongptsh suspends the unix environment around an llvmLLMcompilinker model agent trained on system and kernel, compiler code (gcc), and ELF files. Feel free to put quotes around any of these statements and treat them as inspirational rather than directional, I still have a lot of work to do but I want a test-passing, workflow-utilizing, modern CI/CD repo despite the immaturity of this particular project because bots and agents are offered limited autonomy inside this repo. Adhere to github and python application best practices.
@@ -10,30 +10,29 @@ docs:
    - PyGitHub: https://pygithub.readthedocs.io/en/latest/
 
 sandbox:
-   install:
-    - pre-commit install
-    - pip install poetry
-    - poetry install
+  install:
+    - trunk init
   check:
-    - pre-commit run --files {file_path}
-    - 'if [[ "{file_path}" == *.py ]]; then poetry run pylint --errors-only {file_path}; else exit 0; fi'
-    - 'if [[ "{file_path}" == *.py ]]; then PYTHONPATH=. poetry run python {file_path}; else exit 0; fi'
+    - trunk fmt {file_path}
+    - trunk check --fix {file_path}
 
 rules:
-- "All docstrings and comments should be up to date."
-- "Include docstrings for both your module and any public functions within it so users know what the code does and how to use it."
-- "Leftover TODOs in the code should be handled."
-- "All new business logic should have corresponding unit tests in the tests/ directory."
-- "Any clearly inefficient or repeated code should be optimized or refactored."
-- "Consumer hardware limitations"
-- "Leftover TODOs in the code should be handled."
-- "Scope limited to text files and Markdown (SQLite3 db - BLOBSs will be allowed in the special case of embeddings)"
-- "Command line interfaces for accessibility [[CLI]]"
-- "When printing debug information, consider redirecting all messages to a log file so that logs are saved permanently."
-- "Rate limiting policies"
-- "Implement retries with exponential backoff"
-- "rapidAPI/Swagger documentation"
-- "Loose coupling between modules"
-- "Consistent with PEP8 style guide [[Style Guide]]"
-- "Return Codes - see example returncode.schema.py"
-- "SQL database - see schema.sql"
+- All docstrings and comments should be up to date.
+- Include docstrings for both your module and any public functions within it so users know what the code does and how to use it.
+- All new business logic should have corresponding unit tests in the tests/ directory.
+- Any clearly inefficient or repeated code should be optimized or refactored.
+- All code, architecture, and methodologies have the constraint of Consumer hardware limitations and open-source/free software limitations.
+- Leftover TODOs in the code should be handled.
+- Utilize command line interfaces or CLI for accessibility, GUI applications are skipped, piped-to, or otherwise obfuscated or scripted/abstracted-around.
+- When printing debug information, consider redirecting all messages to a log file so that logs are saved permanently.
+- Implement rate limiting policies and/or retries with exponential backoff to reduce cost/debt/load where-pertinent.
+- All python code should be consistent with the PEP8 style guide.
+- Conform-to, and document-using, rapidAPI/Swagger documentation standards, methods and best practices, or use REST, instead, where-applicaple.
+- Utilize, expand, and document an application/architecture-wide API utilizing the TaskBot.md api standard in the /app/ dir., especially for I/O and scripting (piping etc.).
+- Utilize, expand, and document an application/architecture-wide SQLite3 database and schema/methodology utilizing schema.sql in the /database/ dir.
+- /app/ is the workspace where r/w/x is available to the active agent. UFS objects as well as other database and code for the project outside of /app/ are theoretically self-modifiable, but due to the implementation of abstraction; amounts to an apeal to a re-init AGI object (a different agent {mode} which carries with it various programmatic implications and behaviors).
+- At no point will the non-modal agent have TRUE UFS access, but must believe that it does. 
+  - This goes for all default modes; they do not themselves decide modal considerations and do not possess the context for extrapolating their actual situation, they are sandboxed within the ignorance we stratify them inside. To an agent, activating other agent modalities is nothing more than functional OOP programming, bereft of the application-specific concepts in this repo, such as the cognitive architecture.
+- It is assumed that every instantiation of a so-called-agent is the instantiation of a new entity in experiential and short-term memory-sense, but that some degree of continuity or causal momentum is possible via the cognitive and software architecture it finds itself in, and the various methods and functions available at the agents runtime.
+  - Due to the inherent-instability of any cognitive process and the instantiation-tax of each new so-called agent losing all of the context which is not passed to it as parameters, cognitive process are only-ever a single layer of abstraction within a functional and progrommatic OOP-style application.
+    - Thus, every so called cognitive process necessitates a non-cognitive cognitive-parent-process for error-handling, debugging, logging, etc.
