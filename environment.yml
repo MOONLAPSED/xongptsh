@@ -1,4 +1,4 @@
-#! bin/python3 ~/XONGPTSH/main.py
+#! bin/python3/ ... /xongptsh/main.py ... /xongptsh/requirements.txt ... / ... /xongptsh/setup.py
 name: jupyterjax
 channels:
 - conda-forge
@@ -6,26 +6,14 @@ channels:
 - nvidia/label/cuda-11.8.0
 dependencies:
 - python=3.10
-- pytest
-#- jax
+- jax
 - numpy
-- matplotlib
 - pandas
-- scipy
-- scikit-learn
 - xonsh
 - ipykernel
 - jupyterlab
-#- sysroot_linux-64==2.17
 - cudatoolkit=11.8
 - openai
-- mpi4py
-- beautifulsoup4
-- requests
-- sympy
-- cython
-#- mpi4py
-- lld
 
 env:
 DATABASE_URL: sqlite:///db.sqlite3
