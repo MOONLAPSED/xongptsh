@@ -48,10 +48,14 @@ jobs:
       - name: Create src directory (if needed)
         run: |
           mkdir -p /home/runner/work/xongptsh/xongptsh/src
-
       - name: Test with pytest
         run: |
-          cd /home/runner/work/xongptsh/xongptsh/ # Navigate to the directory
+          if [ ! -f "/home/runner/work/xongptsh/main.py" ]; then
+            echo "ERROR: File 'main.py' not found."
+            exit 1
+          fi
+      
+          cd /home/runner/work/xongptsh # Navigate to the correct directory
           python main.py > test-output.txt # Redirect output to a file
 
       - name: Archive test output
