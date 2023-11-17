@@ -59,12 +59,11 @@ jobs:
     steps:
       - name: Test with pytest
         run: |
-          if [ ! -f "downloaded-main.py" ]; then
+          if [ ! -f "main.py" ]; then
             echo "ERROR: File 'main.py' not found."
             exit 1
           fi
-
-          python downloaded-main.py > test-output.log # Redirect output to a log file
+          python main.py > test-output.log # Redirect output to a log file
 
       - name: Archive test output
         uses: actions/upload-artifact@v3
