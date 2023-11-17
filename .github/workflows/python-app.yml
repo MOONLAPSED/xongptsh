@@ -39,22 +39,34 @@ jobs:
       - name: Build
         run: |
           echo "Building application..."
-          # Your build commands here
-
+          # build commands here
+  
   test:
     runs-on: ubuntu-latest
-
-    steps:    
+  
+    steps:
+      # ... (other setup steps)
+  
       - name: Test with pytest
         run: |
-          echo "pytest"
-        
+          python main.py > test-output.txt  # Redirect output to a file
+  
       - name: Archive test output 
         uses: actions/upload-artifact@v3
         with:
            name: test-output
-           path: test-output/
-         
+           path: test-output.txt
+  
+      - name: Download artifacts
+        uses: actions/download-artifact@v2
+        with:
+          name: test-output
+          path: downloaded-artifact  # Path to download the artifact
+  
+      - name: Display downloaded artifact content
+        run: cat downloaded-artifact/test-output.txt  # Display the content of the downloaded artifact
+
+
   deploy:
     runs-on: ubuntu-latest
   
