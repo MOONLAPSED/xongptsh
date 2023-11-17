@@ -1,9 +1,9 @@
 import logging
-from main import Iteration
+from main import Kerneltuple_
 
 logging.basicConfig(filename='debug.log', level=logging.DEBUG)
 
-class UnixFilesystem(Iteration):
+class UnixFilesystem(Kerneltuple_):
     def __init__(
         self,
         inode,
@@ -19,7 +19,8 @@ class UnixFilesystem(Iteration):
         mtime,
         atime,
     ):
-        super().__init__(inode, "Unix filesystem")
+        super().__init__(Kerneltuple_, "Unix filesystem")
+        self.inode = inode
         self.pathname = pathname
         self.filetype = filetype
         self.permissions = permissions

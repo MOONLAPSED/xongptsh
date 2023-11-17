@@ -1,6 +1,3 @@
-import os
-import unittest
-
 from app.classd.classdef import Entity
 
 
@@ -19,9 +16,19 @@ class TestMain(unittest.TestCase):
     def test_upload_functionality(self):
         # Add unit tests for upload functionality here
         # TODO: Add unit tests for upload functionality
+        """
+        Test case for upload functionality.
+    
+        Add unit tests for upload functionality here.
+        """
         pass
 
     def test_download_functionality(self):
+        """
+        Test case for download functionality.
+
+        Add unit tests for download functionality here.
+        """
         # Add unit tests for download functionality here
         # TODO: Add unit tests for download functionality
         pass
@@ -57,13 +64,3 @@ class TestMain(unittest.TestCase):
         self.assertTrue(os.path.isfile("downloaded-main.py"))
         # Add unit tests for download functionality here
         pass
-
-    def test_new_business_logic(self):
-        # Add unit tests for new business logic here
-        pass
-        # Add unit tests for new business logic here
-        pass
-        # Check if the file is created
-        self.assertTrue(os.path.isfile("downloaded-main.py"))
-        # Test case 1
-        # Test case 2
