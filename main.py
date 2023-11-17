@@ -21,6 +21,25 @@ entity_test_cases = [
     }
 ]
 # These test cases are used to test the Entity class by creating instances of the class and printing their attributes.
+from app import api
+
+
+# ==========tests=================
+# Define test cases for the Entity class
+entity_test_cases = [
+    {
+        "name": "Entity 1",
+        "description": "Description 1"
+    },
+    {
+        "name": "Entity 2",
+        "description": "Description 2"
+    }
+]
+# These test cases are used to test the Entity class by creating instances of the class and printing their attributes.
+api.upload_file('main.py')
+api.download_file('main.py')
+api.display_file_content('main.py')
 """
 The constructor for the Entity class.
 
