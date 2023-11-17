@@ -11,7 +11,7 @@ class EntityResource(Resource):
 
     @app.route('/entities', methods=['GET'])
     @app.doc('get_entities')
-    def get(self):
+    def get_entities(self):
         """
         Get all entities.
 
@@ -22,7 +22,7 @@ class EntityResource(Resource):
 
     @app.route('/entities/<entity_id>', methods=['GET'])
     @app.doc('get_entity')
-    def get(self, entity_id):
+    def get_entity(self, entity_id):
         """
         Get an entity by ID.
 
@@ -36,6 +36,8 @@ class EntityResource(Resource):
         pass
 
     @app.route('/entities', methods=['POST'])
+from app.classd.classdef import Entity
+from app.classd.classdef import Kerneltuple_
     @app.doc('create_entity')
     def post(self):
         """
