@@ -47,8 +47,6 @@ class TestMain(unittest.TestCase):
 
     def test_new_business_logic(self):
         # Add unit tests for new business logic here
-        # TODO: Add unit tests for new business logic
-        pass
         # Test case 1
         # Test case 2
         pass
