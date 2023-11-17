@@ -63,9 +63,6 @@ jobs:
         with:
           name: test-output
           path: test-output.txt
-        with:
-          name: test-output
-          path: test-output.txt
 
       - name: Download artifacts
         uses: actions/download-artifact@v2
@@ -78,7 +75,6 @@ jobs:
 
   deploy:
     runs-on: ubuntu-latest
-
     steps:
       - name: Deploy
         run: |
