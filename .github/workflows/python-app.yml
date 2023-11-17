@@ -24,15 +24,17 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
       - name: Navigate to directory with main.py and print current directory
-        run: cd /home/runner/work/xongptsh/; pwd
+        run: cd /home/runner/work/xongptsh/; pwd; ls -la
 
       - name: Test with pytest
         run: |
           python /home/runner/work/xongptsh/main.py > test-output.txt || true  # Continue even if the test fails
 
       - name: Archive test output as artifact
-        if: always()  # Archive the output regardless of the test success or failure
+        if: always()
         uses: actions/upload-artifact@v2
         with:
           name: test-results
