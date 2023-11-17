@@ -13,7 +13,7 @@ jobs:
 
     steps:
       - name: Checkout code
-        uses: actions/checkout@v3
+        uses: actions/checkout@v2
 
       - name: Set up Python 3.10
         uses: actions/setup-python@v2
@@ -28,15 +28,11 @@ jobs:
           restore-keys: |
             ${{ runner.os }}-pip-
 
-      - name: Save main.py as artifact
-        run: echo "::set-output name=filename::main.py"
-        id: save-main-py
-
-      - name: Upload main.py as artifact
+      - name: Upload main.py artifact
         uses: actions/upload-artifact@v2
         with:
           name: main-py
-          path: ${{ steps.save-main-py.outputs.filename }}
+          path: main.py
 
   build:
     runs-on: ubuntu-latest
@@ -46,12 +42,13 @@ jobs:
         uses: actions/download-artifact@v2
         with:
           name: main-py
-          path: ./app # Save in the current directory
+          path: .
 
       - name: Build
         run: |
           echo "Building application..."
           # build commands here
+
   test:
     runs-on: ubuntu-latest
 
@@ -60,7 +57,7 @@ jobs:
         uses: actions/download-artifact@v2
         with:
           name: main-py
-          path: . # Save in the current directory
+          path: .
 
       - name: Test with pytest
         run: |
@@ -89,7 +86,7 @@ jobs:
         uses: actions/download-artifact@v2
         with:
           name: main-py
-          path: . # Save in the current directory
+          path: .
 
       - name: Deploy
         run: |
