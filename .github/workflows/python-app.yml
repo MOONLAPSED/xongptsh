@@ -38,6 +38,20 @@ jobs:
           name: main-py
           path: ${{ steps.save-main-py.outputs.filename }}
 
+      - name: Upload main.py as artifact
+        uses: actions/upload-artifact@v2
+        with:
+          name: main.py
+          path: main.py
+        run: echo "::set-output name=filename::main.py"
+        id: save-main-py
+
+      - name: Upload main.py as artifact
+        uses: actions/upload-artifact@v2
+        with:
+          name: main-py
+          path: ${{ steps.save-main-py.outputs.filename }}
+
   build:
     runs-on: ubuntu-latest
 
@@ -64,6 +78,29 @@ jobs:
           path: . # Save in the current directory
 
       - name: Test with pytest
+        run: |
+          if [ ! -f "main.py" ]; then
+            echo "ERROR: File 'main.py' not found."
+            exit 1
+          fi
+      
+          python main.py > test-output.txt  # Execute main.py using python notation
+
+      - name: Archive test output
+        if: success()
+        uses: actions/upload-artifact@v2
+        with:
+          name: test-output
+          path: test-output.txt
+
+      - name: Display downloaded artifact content
+        run: cat test-output.txt # Display the content of the test output
+
+      - name: Upload main.py as artifact
+        uses: actions/upload-artifact@v2
+        with:
+          name: main.py
+          path: main.py
         run: |
           if [ ! -f "main.py" ]; then
             echo "ERROR: File 'main.py' not found."
