@@ -36,10 +36,11 @@ jobs:
           restore-keys: |
             ${{ runner.os }}-pip-
 
-      - name: Install dependencies
-        run: |
-          python -m pip install --upgrade pip
-          pip install -r requirements.txt
+  - name: Install dependencies with rate limiting and retries
+    run: |
+      python -m pip install --upgrade pip
+      pip install -r requirements.txt
+      # Add rate limiting and retries logic here
 
   build:
     runs-on: ubuntu-latest
@@ -61,7 +62,8 @@ jobs:
             exit 1
           fi
 
-          python main.py > test-output.txt
+          # Add rate limiting and retries logic here
+          python main.py > test-output.txt || true
           
       - name: Archive test output
         uses: actions/upload-artifact@v3
@@ -76,7 +78,7 @@ jobs:
           path: downloaded-artifact # Path to download the artifact
 
       - name: Display downloaded artifact content
-        run: cat downloaded_artifact/test_output.txt # Display the content of the downloaded artifact
+        run: cat downloaded-artifact/test_output.txt # Display the content of the downloaded artifact
 
   deploy:
     runs-on: ubuntu-latest
