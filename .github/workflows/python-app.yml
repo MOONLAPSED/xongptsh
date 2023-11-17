@@ -1,6 +1,6 @@
 name: python-app
 
-on: 
+on:
   push:
     branches: [ "main" ]
   pull_request:
@@ -12,26 +12,26 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-    - uses: actions/checkout@v3
-    
-    - name: Set up Python 3.10
-      uses: actions/setup-python@v3
-      with:
-        python-version: "3.10"
-        
-    - name: Cache dependencies
-      uses: actions/cache@v2
-      with:
-        path: ~/.cache/pip
-        key: ${{ runner.os }}-pip-${{ hashFiles('**/requirements.txt') }}
-        restore-keys: |
-          ${{ runner.os }}-pip-
-            
-    - name: Install dependencies
-      run: |
-        python -m pip install --upgrade pip
-        pip install -r requirements.txt
-        
+      - uses: actions/checkout@v3
+
+      - name: Set up Python 3.10
+        uses: actions/setup-python@v3
+        with:
+          python-version: "3.10"
+
+      - name: Cache dependencies
+        uses: actions/cache@v2
+        with:
+          path: ~/.cache/pip
+          key: ${{ runner.os }}-pip-${{ hashFiles('**/requirements.txt') }}
+          restore-keys: |
+            ${{ runner.os }}-pip-
+
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install -r requirements.txt
+
   build:
     runs-on: ubuntu-latest
 
@@ -40,37 +40,34 @@ jobs:
         run: |
           echo "Building application..."
           # build commands here
-  
+
   test:
     runs-on: ubuntu-latest
-  
+
     steps:
-      # ... (other setup steps)
-  
-    - name: Test with pytest
-      run: |
-        ls -Ra /home/runner/work/xongptsh/xongptsh/
-        python main.py > test-output.txt  # Redirect output to a file
+      - name: Test with pytest
+        run: |
+          cd /home/runner/work/xongptsh/xongptsh/src # Navigate to the directory
+          python main.py > test-output.txt # Redirect output to a file
 
-    - name: Archive test output 
-      uses: actions/upload-artifact@v3
-      with:
-         name: test-output
-         path: test-output.txt
+      - name: Archive test output
+        uses: actions/upload-artifact@v3
+        with:
+          name: test-output
+          path: test-output.txt
 
-    - name: Download artifacts
-      uses: actions/download-artifact@v2
-      with:
-        name: test-output
-        path: downloaded-artifact  # Path to download the artifact
-  
-    - name: Display downloaded artifact content
-      run: cat downloaded-artifact/test-output.txt  # Display the content of the downloaded artifact
+      - name: Download artifacts
+        uses: actions/download-artifact@v2
+        with:
+          name: test-output
+          path: downloaded-artifact # Path to download the artifact
 
+      - name: Display downloaded artifact content
+        run: cat downloaded-artifact/test-output.txt # Display the content of the downloaded artifact
 
   deploy:
     runs-on: ubuntu-latest
-  
+
     steps:
       - name: Deploy
         run: |
