@@ -38,9 +38,6 @@ jobs:
         with:
           name: main-py
           path: . # Save in the current directory
-          key: ${{ runner.os }}-pip-${{ hashFiles('**/requirements.txt') }}
-          restore-keys: |
-            ${{ runner.os }}-pip-
 
       - name: Download main.py artifact
         uses: actions/download-artifact@v2
@@ -49,6 +46,11 @@ jobs:
           path: . # Save in the current directory
 
   build:
+      - name: Download main.py artifact
+        uses: actions/download-artifact@v2
+        with:
+          name: main-py
+          path: . # Save in the current directory
     runs-on: ubuntu-latest
 
     steps:
