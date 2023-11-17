@@ -2,7 +2,7 @@
 This module contains the main function that initializes the logger and creates an instance of the Entity class. 
 It also handles keyboard interrupts and system exits.
 """
-import sys, os, argparse, json, logging, asyncio, datetime, requests, sqlite3, socketserver, subprocess, bs4, re, threading
+import sys, os, argparse, json, logging, asyncio, datetime, requests, sqlite3, socketserver, subprocess, re, threading
 import http.server
 import socketserver
 from app.classd.classdef import *
