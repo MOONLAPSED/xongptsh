@@ -1,5 +1,6 @@
 import unittest
 
+import os
 from app.classd.classdef import Entity
 
 
