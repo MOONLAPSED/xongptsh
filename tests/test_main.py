@@ -31,7 +31,7 @@ class TestMain(unittest.TestCase):
         Add unit tests for download functionality here.
         """
         # Add unit tests for download functionality here
-        # Create the 'main.py' file
+        pass
         with open("main.py", "w") as f:
             f.write("Some content")
         # Check if the file is created
