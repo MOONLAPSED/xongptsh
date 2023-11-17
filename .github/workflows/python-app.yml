@@ -47,8 +47,7 @@ jobs:
       - name: Build
         run: |
           echo "Building application..."
-          # build commands here
-
+          python setup.py build
   test:
     runs-on: ubuntu-latest
 
@@ -90,4 +89,4 @@ jobs:
       - name: Deploy
         run: |
           echo "Deploying application..."
-          # Your deployment commands here
+          python deploy.py
