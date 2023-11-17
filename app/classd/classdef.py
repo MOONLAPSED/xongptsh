@@ -100,6 +100,22 @@ class Kerneltuple_:
         Returns:
         list: The attributes of the Kerneltuple_ object.
         """
+        return list(self.attributes)
+        retry_count = 0
+        while retry_count < MAX_RETRIES:
+            try:
+                return Kerneltuple_(**kwargs)
+            except Exception as e:
+                retry_count += 1
+                time.sleep(2 ** retry_count)
+        # Handle failure case here
+        return None
+        """
+        Returns the attributes of the Kerneltuple_ object.
+
+        Returns:
+        list: The attributes of the Kerneltuple_ object.
+        """
         return self.attributes
 
     def get_values(self):
