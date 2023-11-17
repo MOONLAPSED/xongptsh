@@ -22,6 +22,24 @@ class Entity_:
         self.name = name
         self.description = description
 
+    def __str__(self):
+        """
+        Returns a string representation of the Entity_ object.
+
+        Returns:
+        str: A string representation of the Entity_ object.
+        """
+        return self.name
+
+    def __repr__(self):
+        """
+        Returns a string representation of the Entity_ object.
+
+        Returns:
+        str: A string representation of the Entity_ object.
+        """
+        return "Entity_(name='{}', description='{}')".format(self.name, self.description)
+
 class Kerneltuple_:
     """
     The Kerneltuple_ class represents a kernel tuple with attributes and values.
@@ -75,6 +93,35 @@ class Kerneltuple_:
         # Handle failure case here
         return None
 
+    def get_attributes(self):
+        """
+        Returns the attributes of the Kerneltuple_ object.
+
+        Returns:
+        list: The attributes of the Kerneltuple_ object.
+        """
+        return self.attributes
+
+    def get_values(self):
+        """
+        Returns the values of the Kerneltuple_ object.
+
+        Returns:
+        list: The values of the Kerneltuple_ object.
+        """
+        return self.values
+        Kerneltuple_: A new instance of the Kerneltuple_ class.
+        """
+        retry_count = 0
+        while retry_count < MAX_RETRIES:
+            try:
+                return Kerneltuple_(**kwargs)
+            except Exception as e:
+                retry_count += 1
+                time.sleep(2 ** retry_count)
+        # Handle failure case here
+        return None
+
 class Attribute_(Entity_):
     """
     The Attribute_ class represents an attribute with a name and a description.
@@ -83,4 +130,12 @@ class Attribute_(Entity_):
     name (str): The name of the attribute.
     description (str): The description of the attribute.
     """
-    # TODO: ABC Attribute_
+    def __init__(self, name, description):
+        """
+        The constructor for the Attribute_ class. It initializes the name and description attributes.
+
+        Parameters:
+        name (str): The name of the attribute.
+        description (str): The description of the attribute.
+        """
+        super().__init__(name, description)
