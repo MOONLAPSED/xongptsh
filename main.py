@@ -1,6 +1,24 @@
+===tests=================
+# Define test cases for the Entity class
+entity_test_cases = [
+    {
+        "name": "Entity 1",
+        "description": "Description 1"
+    },
+    {
+        "name": "Entity 2",
+        "description": "Description 2"
+    }
+]
+# These test cases are used to test the Entity class by creating instances of the class and printing their attributes.
+for test_case in entity_test_cases:
+=======
 import sys, os, logging, requests, sqlite3, subprocess, bs4, re, threading, argparse, asyncio, datetime, http.server, json, socketserver
 from app.classd.classdef import Entity, Kerneltuple_
 
+"""
+This module provides functionality for <module purpose>.
+"""
 
 # ==========tests=================
 # Define test cases for the Entity class
@@ -16,7 +34,36 @@ entity_test_cases = [
 ]
 # These test cases are used to test the Entity class by creating instances of the class and printing their attributes.
 for test_case in entity_test_cases:
+    """
+    Create an instance of the Entity class with the given name and description.
+
+    Args:
+        name (str): The name of the entity.
+        description (str): The description of the entity.
+
+    Returns:
+        Entity: An instance of the Entity class.
+    """
+        "name": "Entity 1",
+        "description": "Description 1"
+    },
+    {
+        "name": "Entity 2",
+        "description": "Description 2"
+    }
+]
+# These test cases are used to test the Entity class by creating instances of the class and printing their attributes.
+for test_case in entity_test_cases:
     entity = Entity(test_case["name"], test_case["description"])
+    """
+    Print the name and description of the entity.
+
+    Args:
+        None
+
+    Returns:
+        None
+    """
     print(entity.name)
     print(entity.description)
 kernel_tuple_test_cases = [
@@ -37,7 +84,36 @@ kernel_tuple_test_cases = [
 ]
 
 for ktest_case in kernel_tuple_test_cases:
+    """
+    Create an instance of the Kerneltuple_ class with the given attributes.
+
+    Args:
+        inode (str): The inode value.
+        pathname (str): The pathname value.
+        filetype (str): The filetype value.
+        permissions (str): The permissions value.
+        owner (str): The owner value.
+        group_id (str): The group ID value.
+        PID (str): The PID value.
+        unit_file (str): The unit file value.
+        unit_file_addr (str): The unit file address value.
+        size (str): The size value.
+        mtime (str): The mtime value.
+        atime (str): The atime value.
+
+    Returns:
+        Kerneltuple_: An instance of the Kerneltuple_ class.
+    """
     ktuple = Kerneltuple_(**ktest_case)
+    """
+    Print the attributes of the Kerneltuple_ instance.
+
+    Args:
+        None
+
+    Returns:
+        None
+    """
     print(ktuple)
 from app.classd.classdef import Entity, Kerneltuple_
 kernel_tuple_test_cases = [
@@ -59,5 +135,25 @@ kernel_tuple_test_cases = [
 # These test cases are used to test the Kerneltuple_ class by creating instances of the class and printing their attributes.
 
 for ktest_case in kernel_tuple_test_cases:
+    """
+    Create an instance of the Kerneltuple_ class with the given attributes.
+
+    Args:
+        inode (str): The inode value.
+        pathname (str): The pathname value.
+        filetype (str): The filetype value.
+        permissions (str): The permissions value.
+        owner (str): The owner value.
+        group_id (str): The group ID value.
+        PID (str): The PID value.
+        unit_file (str): The unit file value.
+        unit_file_addr (str): The unit file address value.
+        size (str): The size value.
+        mtime (str): The mtime value.
+        atime (str): The atime value.
+
+    Returns:
+        Kerneltuple_: An instance of the Kerneltuple_ class.
+    """
     ktuple = Kerneltuple_(**ktest_case)
     print(ktuple)
