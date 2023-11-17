@@ -17,6 +17,11 @@ class TestMain(unittest.TestCase):
         self.assertEqual(entity2.description, "Description 2")
 
     def test_upload_functionality(self):
+        """
+        Test case for the upload functionality.
+
+        This method should be used to add unit tests for the upload functionality.
+        """
         # Add unit tests for upload functionality here
         pass
 
@@ -31,7 +36,67 @@ class TestMain(unittest.TestCase):
         f.close()
         # Check if the file is created
         self.assertTrue(os.path.isfile("downloaded-main.py"))
+    def test_upload_functionality(self):
+        """
+        Test case for the upload functionality.
+
+        This method should be used to add unit tests for the upload functionality.
+        """
+        pass
+
+    def test_download_functionality(self):
+        """
+        Test case for the download functionality.
+
+        This method should be used to add unit tests for the download functionality.
+        """
+        pass
+        with open("main.py", "w") as f:
+            f.write("Some content")
+        # Check if the file is created
+        self.assertTrue(os.path.isfile("main.py"))
+        # Close the file
+        f.close()
+        # Check if the file is created
+        self.assertTrue(os.path.isfile("downloaded-main.py"))
         # Add unit tests for download functionality here
+        # Test case 1
+        # Test case 2
+        pass
+
+    def test_new_business_logic(self):
+        """
+        Test case for the new business logic.
+
+        This method should be used to add unit tests for the new business logic.
+        """
+        # Add unit tests for new business logic here
+        # Test case 1
+        # Test case 2
+        pass
+        # Add unit tests for download functionality here
+        # Create the 'main.py' file
+        with open("main.py", "w") as f:
+            f.write("Some content")
+        # Check if the file is created
+        self.assertTrue(os.path.isfile("main.py"))
+        # Close the file
+        f.close()
+        # Check if the file is created
+        self.assertTrue(os.path.isfile("downloaded-main.py"))
+        # Add unit tests for download functionality here
+        pass
+
+    def test_new_business_logic(self):
+        """
+        Test case for the new business logic.
+
+        This method should be used to add unit tests for the new business logic.
+        """
+        # Add unit tests for new business logic here
+        pass
+        # Check if the file is created
+        self.assertTrue(os.path.isfile("downloaded-main.py"))
         # Test case 1
         # Test case 2
         pass
