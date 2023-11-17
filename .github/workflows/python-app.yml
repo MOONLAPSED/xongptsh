@@ -14,6 +14,15 @@ jobs:
     steps:
       - uses: actions/checkout@v3
 
+      - name: Check for main.py
+        run: |
+          if [ ! -f "/home/runner/work/main.py" ]; then
+            echo "ERROR: File 'main.py' not found."
+            exit 1
+          fi
+
+          ls -Ra /home/runner/work/
+
       - name: Set up Python 3.10
         uses: actions/setup-python@v3
         with:
@@ -44,14 +53,13 @@ jobs:
     steps:
       - name: Test with pytest
         run: |
-          if [ ! -f "/home/runner/work/xongptsh/main.py" ]; then
+          if [ ! -f "/home/runner/work/main.py" ]; then
             echo "ERROR: File 'main.py' not found."
             exit 1
           fi
 
-          cd /home/runner/work/xongptsh # Navigate to the directory
-          python main.py > test-output.txt # Redirect output to a file
-
+          python main.py > test-output.txt
+          
       - name: Archive test output
         uses: actions/upload-artifact@v3
         with:
@@ -65,7 +73,7 @@ jobs:
           path: downloaded-artifact # Path to download the artifact
 
       - name: Display downloaded artifact content
-        run: cat downloaded-artifact/test-output.txt # Display the content of the downloaded artifact
+        run: cat downloaded_artifact/test_output.txt # Display the content of the downloaded artifact
 
   deploy:
     runs-on: ubuntu-latest
