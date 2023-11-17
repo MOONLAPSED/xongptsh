@@ -29,8 +29,6 @@ entity_test_cases = [
 ]
 # These test cases are used to test the Entity class by creating instances of the class and printing their attributes.
 """
-=======
-import sys, os, logging, requests, sqlite3, subprocess, bs4, re, threading, argparse, asyncio, datetime, http.server, json, socketserver
 
 # These test cases are used to test the Entity class by creating instances of the class and printing their attributes.
 from app.classd.classdef import Entity, Kerneltuple_
