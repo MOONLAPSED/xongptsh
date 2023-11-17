@@ -49,30 +49,4 @@ kernel_tuple_test_cases = [
         'atime': 'some_atime_value'
     },
 ]
-def ktest_case(self):
-    for ktest_case in kernel_tuple_test_cases:
-        ktuple = Kerneltuple_(**ktest_case)
-        print(ktuple)
-        """
-        Returns a string representation of the Kerneltuple_ object.
-
-        Returns:
-        str: A string representation of the Kerneltuple_ object.
-        """
-        if self.values == []:
-            return "Kerneltuple_()"
-        else:
-            return "Kerneltuple_({})".format(str(self.values)[1:-1])
-            super().__init__(**Kerneltuple_)
-            self.inode = inode
-            self.pathname = pathname
-            self.filetype = filetype
-            self.permissions = permissions
-            self.owner = owner
-            self.group_id = group_id
-            self.PID = PID
-            self.unit_file = unit_file
-            self.unit_file_addr = unit_file_addr
-            self.size = size
-            self.mtime = mtime
-            self.atime = atime
+# Remove the function "ktest_case" as it is not a CLI.
