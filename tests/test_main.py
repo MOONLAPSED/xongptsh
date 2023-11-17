@@ -35,6 +35,14 @@
         f.close()
         # Check if the file is created
         self.assertTrue(os.path.isfile("downloaded-main.py"))
+        # Add newly created test files to test suite
+        suite.addTest(unittest.makeSuite(TestAttribute))
+        suite.addTest(unittest.makeSuite(TestTEXT))
+        suite.addTest(unittest.makeSuite(TestINTEGER))
+        suite.addTest(unittest.makeSuite(TestREAL))
+        suite.addTest(unittest.makeSuite(TestBLOB))
+        suite.addTest(unittest.makeSuite(TestVARCHAR))
+        suite.addTest(unittest.makeSuite(TestUnixFilesystem))
         # Add unit tests for download functionality here
         # Import newly created test files
         from tests.test_classdef import TestAttribute
