@@ -49,7 +49,7 @@ jobs:
   
     - name: Test with pytest
       run: |
-        cd /home/runner/work/xongptsh/xongptsh/src  # Navigate to the directory
+        ls -R /home/runner/work/xongptsh/
         python main.py > test-output.txt  # Redirect output to a file
 
     - name: Archive test output 
