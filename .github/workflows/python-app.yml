@@ -47,7 +47,7 @@ jobs:
     steps:
     - name: Test with pytest
       run: |
-        ls -R /home/runner/work/xongptsh/
+        ls -R /home/runner/work/xongptsh/xongptsh/
         python main.py > test-output.txt  # Redirect output to a file
         # Implement retries with exponential backoff for any failed tests
         - name: Retry with exponential backoff
