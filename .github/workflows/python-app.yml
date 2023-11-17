@@ -26,7 +26,7 @@ jobs:
     steps:
       - name: Test with pytest
         run: |
-          python main.py > test-output.txt || true  # Continue even if the test fails
+          python main.py 2>&1 | tee python-app.log > /dev/null || true  # Redirect both standard output and standard error to the python-app.log file
 
       - name: Archive test output as artifact
         if: always()  # Archive the output regardless of the test success or failure
