@@ -31,10 +31,7 @@
         # Add unit tests for download functionality here
         pass
         """
-        Test case for download functionality.
-
-        Add unit tests for download functionality here.
-        """
+        Test case to verify the download functionality of the application.
 
     def test_new_business_logic(self):
         # Add unit tests for new business logic here
@@ -59,7 +56,6 @@
         pass
     """
     Test case for download functionality.
-
     Add unit tests for download functionality here.
     """
     # Add unit tests for download functionality here
