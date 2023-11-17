@@ -1,8 +1,6 @@
-import module1
-import module2
-
 # This is a comment.
 # Another comment.
+
 
 def operation_that_could_succeed():
     """
@@ -10,6 +8,7 @@ def operation_that_could_succeed():
     """
 
     # Some code here.
+
 
 class MyClass:
     """
