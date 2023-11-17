@@ -25,7 +25,7 @@ jobs:
 
     steps:
       - name: Navigate to directory with main.py and print current directory
-        run: cd path/to/directory/containing/main.py; pwd
+        run: cd /home/runner/work/xongptsh/; pwd
 
       - name: Test with pytest
         run: |
