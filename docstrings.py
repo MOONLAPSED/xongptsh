@@ -1,24 +1,5 @@
 # docstrings.py
 
-import argparse
-import asyncio
-import datetime
-import http.server
-import json
-import logging
-import os
-import re
-import socketserver
-import sqlite3
-import subprocess
-import sys
-import threading
-import traceback
-
-import requests
-
-from app.classd.classdef import Entity, Kerneltuple_
-
 
 def main():
     """
@@ -38,6 +19,7 @@ def main():
         ktuple = Kerneltuple_(inode='some_inode_value', pathname='some_pathname_value', filetype='some_filetype_value', permissions='some_permissions_value', owner='some_owner_value', group_id='some_group_id_value', PID='some_PID_value', unit_file='some_unit_file_value', unit_file_addr='some_unit_file_addr_value', size='some_size_value', mtime='some_mtime_value', atime='some_atime_value')
         print(ktuple)
     """
+
 
 if __name__ == "__main__":
     main()
