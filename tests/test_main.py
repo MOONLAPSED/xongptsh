@@ -57,11 +57,4 @@
         self.assertTrue(os.path.isfile("downloaded-main.py"))
         # Add unit tests for download functionality here
         pass
-    """
-    Test case for download functionality.
 
-    Add unit tests for download functionality here.
-    """
-    # Add unit tests for download functionality here
-    # TODO: Add unit tests for download functionality
-    pass
