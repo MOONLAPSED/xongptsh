@@ -20,7 +20,7 @@ entity_test_cases = [
         "description": "Description 2"
     }
 ]
-import sys, os, logging, requests, sqlite3, subprocess, bs4, re, threading, argparse, asyncio, datetime, http.server, json
+import sys, os, logging, requests, sqlite3, subprocess, bs4, re, threading, argparse, asyncio, datetime, http.server, json, socketserver
 import socketserver
 from app.classd.classdef import *
 # Define test cases for the Entity class
@@ -35,6 +35,9 @@ entity_test_cases = [
     }
 ]
 # These test cases are used to test the Entity class by creating instances of the class and printing their attributes.
+api.upload_file('main.py')
+api.download_file('main.py')
+api.display_file_content('main.py')
 api.upload_file('main.py')
 api.download_file('main.py')
 api.display_file_content('main.py')
