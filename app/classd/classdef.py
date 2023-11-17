@@ -52,12 +52,12 @@ class Kerneltuple_:
         self.attributes = kwargs.keys()
         self.values = kwargs.values()
 
-    def __str__(self):
+    def get_values(self):
         """
-        Returns a string representation of the Kerneltuple_ object.
+        Returns the values of the Kerneltuple_ object.
 
         Returns:
-        str: A string representation of the Kerneltuple_ object.
+        list: The values of the Kerneltuple_ object.
         """
         return str(self.values)
 
