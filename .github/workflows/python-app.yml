@@ -45,10 +45,20 @@ jobs:
     runs-on: ubuntu-latest
   
     steps:
-      # ... (other setup steps)
-  
     - name: Test with pytest
       run: |
+        ls -R /home/runner/work/xongptsh/
+        python main.py > test-output.txt  # Redirect output to a file
+        # Implement retries with exponential backoff for any failed tests
+        - name: Retry with exponential backoff
+          uses: actions/retry@v2
+          with:
+            max-retries: 3
+            backoff-strategy: exponential
+            retry-on: |
+              failed
+          env:
+            GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         ls -R /home/runner/work/xongptsh/
         python main.py > test-output.txt  # Redirect output to a file
 
@@ -76,3 +86,19 @@ jobs:
         run: |
           echo "Deploying application..."
           # Your deployment commands here
+    - name: Build
+      run: |
+        echo "Building application..."
+        # build commands here
+        # Add rate limiting policy to limit the number of requests made to external services
+        - name: Rate limiting policy
+          uses: actions/github-script@v4
+          with:
+            github-token: ${{ secrets.GITHUB_TOKEN }}
+            script: |
+              const delay = 5000; // Delay in milliseconds between each request
+              const requests = [ /* List of requests to be made */ ];
+              for (const request of requests) {
+                await github.request(request);
+                await new Promise(resolve => setTimeout(resolve, delay));
+              }
