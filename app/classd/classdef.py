@@ -110,6 +110,22 @@ class Attribute_(Entity_):
         retry_count = 0
         while retry_count < MAX_RETRIES:
             try:
+        def create_instance(self, **kwargs):
+        """
+        Create a new instance of the Kerneltuple class with the given keyword arguments.
+        
+        Parameters:
+        - kwargs: A dictionary of keyword arguments to initialize the Kerneltuple instance.
+        
+        Returns:
+        - The newly created Kerneltuple instance.
+        
+        Raises:
+        - Exception: If an error occurs during the creation of the Kerneltuple instance.
+        """
+        retry_count = 0
+        while retry_count < MAX_RETRIES:
+            try:
                 return Kerneltuple_(**kwargs)
             except Exception as e:
                 retry_count += 1
