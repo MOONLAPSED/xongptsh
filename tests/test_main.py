@@ -1,6 +1,3 @@
-import os
-import unittest
-
 from app.classd.classdef import Entity
 
 
@@ -16,9 +13,6 @@ class TestMain(unittest.TestCase):
         self.assertEqual(entity2.name, "Entity 2")
         self.assertEqual(entity2.description, "Description 2")
 
-    def test_upload_functionality(self):
-        # Add unit tests for upload functionality here
-        pass
 
     def test_download_functionality(self):
         # Add unit tests for download functionality here
@@ -54,10 +48,3 @@ class TestMain(unittest.TestCase):
         # Add unit tests for download functionality here
         pass
 
-    def test_new_business_logic(self):
-        # Add unit tests for new business logic here
-        pass
-        # Check if the file is created
-        self.assertTrue(os.path.isfile("downloaded-main.py"))
-        # Test case 1
-        # Test case 2
