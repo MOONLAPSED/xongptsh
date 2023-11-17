@@ -50,29 +50,15 @@ kernel_tuple_test_cases = [
     },
 ]
 def ktest_case(self):
+    """
+    Performs a test case for the Kerneltuple_ class.
+
+    This function creates a Kerneltuple_ object using the provided test case data and prints its string representation.
+    It demonstrates the usage of the Kerneltuple_ class and its initialization with different attribute values.
+
+    Returns:
+    None
+    """
     for ktest_case in kernel_tuple_test_cases:
         ktuple = Kerneltuple_(**ktest_case)
         print(ktuple)
-        """
-        Returns a string representation of the Kerneltuple_ object.
-
-        Returns:
-        str: A string representation of the Kerneltuple_ object.
-        """
-        if self.values == []:
-            return "Kerneltuple_()"
-        else:
-            return "Kerneltuple_({})".format(str(self.values)[1:-1])
-            super().__init__(**Kerneltuple_)
-            self.inode = inode
-            self.pathname = pathname
-            self.filetype = filetype
-            self.permissions = permissions
-            self.owner = owner
-            self.group_id = group_id
-            self.PID = PID
-            self.unit_file = unit_file
-            self.unit_file_addr = unit_file_addr
-            self.size = size
-            self.mtime = mtime
-            self.atime = atime
