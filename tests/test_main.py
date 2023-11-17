@@ -18,6 +18,7 @@ class TestMain(unittest.TestCase):
 
 if __name__ == "__main__":
     unittest.main()
+
     def test_upload_functionality(self):
         # Add unit tests for upload functionality here
         pass
