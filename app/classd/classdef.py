@@ -110,8 +110,6 @@ class Kerneltuple_:
         list: The values of the Kerneltuple_ object.
         """
         return self.values
-        Kerneltuple_: A new instance of the Kerneltuple_ class.
-        """
         retry_count = 0
         while retry_count < MAX_RETRIES:
             try:
@@ -125,7 +123,6 @@ class Kerneltuple_:
 class Attribute_(Entity_):
     """
     The Attribute_ class represents an attribute with a name and a description.
-
     Attributes:
     name (str): The name of the attribute.
     description (str): The description of the attribute.
