@@ -38,7 +38,7 @@ jobs:
         uses: actions/download-artifact@v2
         with:
           name: main-py
-          path: .
+          path: main.py
 
   build:
     runs-on: ubuntu-latest
@@ -63,7 +63,6 @@ jobs:
 
   test:
     runs-on: ubuntu-latest
-
     steps:
       - name: Download main.py artifact
         uses: actions/download-artifact@v2
