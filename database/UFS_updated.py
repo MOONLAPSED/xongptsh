@@ -1,5 +1,5 @@
-from main import Kerneltuple_
 from app.classd.classdef_updated import Entity_
+from main import Kerneltuple_
 
 
 class UnixFilesystem(Kerneltuple_, Entity_):
@@ -20,6 +20,7 @@ class UnixFilesystem(Kerneltuple_, Entity_):
     mtime (int): The modification time of the filesystem.
     atime (int): The access time of the filesystem.
     """
+
     def __init__(
         self,
         inode,
