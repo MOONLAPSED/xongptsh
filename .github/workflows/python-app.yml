@@ -20,15 +20,6 @@ jobs:
         with:
           python-version: "3.10"
 
-  build:
-    runs-on: ubuntu-latest
-
-    steps:
-      - name: Build
-        run: |
-          echo "Building application..."
-          # build commands here
-
   test:
     runs-on: ubuntu-latest
 
@@ -37,16 +28,9 @@ jobs:
         run: |
           python main.py > test-output.txt || true  # Continue even if the test fails
 
-      - name: Archive test output
+      - name: Archive test output as artifact
         if: always()  # Archive the output regardless of the test success or failure
-        run: |
-          cp test-output.txt $GITHUB_WORKSPACE/test-output.txt
-
-  deploy:
-    runs-on: ubuntu-latest
-
-    steps:
-      - name: Deploy
-        run: |
-          echo "Deploying application..."
-          # Your deployment commands here
+        uses: actions/upload-artifact@v2
+        with:
+          name: test-results
+          path: test-output.txt
