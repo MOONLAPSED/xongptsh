@@ -11,7 +11,7 @@ class EntityResource(Resource):
 
     @app.route('/entities', methods=['GET'])
     @app.doc('get_entities')
-    def get_entities(self):
+    def get(self):
         """
         Get all entities.
 
