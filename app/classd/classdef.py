@@ -123,6 +123,7 @@ class Kerneltuple_:
 class Attribute_(Entity_):
     """
     The Attribute_ class represents an attribute with a name and a description.
+
     Attributes:
     name (str): The name of the attribute.
     description (str): The description of the attribute.
