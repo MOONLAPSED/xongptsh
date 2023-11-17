@@ -30,7 +30,6 @@ class TestMain(unittest.TestCase):
         Add unit tests for download functionality here.
         """
         # Add unit tests for download functionality here
-        # TODO: Add unit tests for download functionality
         pass
         with open("main.py", "w") as f:
             f.write("Some content")
@@ -46,7 +45,6 @@ class TestMain(unittest.TestCase):
         pass
 
     def test_new_business_logic(self):
-        # Add unit tests for new business logic here
         # Test case 1
         # Test case 2
         pass
