@@ -38,6 +38,10 @@ class TestMain(unittest.TestCase):
         # Test case 1
         # Test case 2
         pass
+    
+    def test_upload_functionality(self):
+        """Test the functionality of the upload feature."""
+        # Add unit tests for upload functionality here
 
     def test_new_business_logic(self):
         # Add unit tests for new business logic here
@@ -48,4 +52,9 @@ class TestMain(unittest.TestCase):
     def test_upload_functionality(self):
         """Test the functionality of the upload feature."""
         # Add unit tests for upload functionality here
+    def test_new_business_logic(self):
+        # Add unit tests for new business logic here
+        # Test case 1
+        # Test case 2
+        pass
 
