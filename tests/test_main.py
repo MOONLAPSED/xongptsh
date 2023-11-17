@@ -21,8 +21,20 @@ class TestMain(unittest.TestCase):
 
     def test_download_functionality(self):
         # Add unit tests for download functionality here
+        # Create the 'main.py' file
+        with open('main.py', 'w') as f:
+            f.write('Some content')
+        # Check if the file is created
+        self.assertTrue(os.path.isfile('main.py'))
+        # Close the file
+        f.close()
+        # Check if the file is created
+        self.assertTrue(os.path.isfile('downloaded-main.py'))
+        # Add unit tests for download functionality here
         pass
 
     def test_new_business_logic(self):
         # Add unit tests for new business logic here
         pass
+        # Check if the file is created
+        self.assertTrue(os.path.isfile('downloaded-main.py'))
