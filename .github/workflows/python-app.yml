@@ -64,7 +64,7 @@ jobs:
             exit 1
           fi
 
-          python downloaded-main.py > test-output.txt # Redirect output to a file
+          python downloaded-main.py > test-output.log # Redirect output to a log file
 
       - name: Archive test output
         uses: actions/upload-artifact@v3
