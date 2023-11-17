@@ -51,7 +51,7 @@ for test_case in entity_test_cases:
             'unit_file_addr': 'some_unit_file_addr_value',
             'size': 'some_size_value',
             'mtime': 'some_mtime_value',
-            'atime': 'some_atime_value'
+            'atime': 'some_atime_value',
         },
     ]
         'pathname': 'some_pathname_value',
