@@ -38,14 +38,6 @@ jobs:
           python -m pip install --upgrade pip
           pip install -r requirements.txt
 
-  build:
-    runs-on: ubuntu-latest
-
-    steps:
-      - name: Build
-        run: |
-          echo "Building application..."
-          # build commands here
 
   test:
     runs-on: ubuntu-latest
@@ -59,7 +51,27 @@ jobs:
 
       - name: Test with pytest
         run: |
-          if [ ! -f "downloaded-main.py" ]; then
+          if [ ! -f "/home/runner/work/main.py" ]; then
+            echo "ERROR: File 'main.py' not found."
+            exit 1
+          fi
+
+          python downloaded-main.py > test-output.txt # Redirect output to a file
+
+      - name: Archive test output
+        uses: actions/upload-artifact@v3
+        with:
+          name: test-output
+          path: test-output.txt
+
+      - name: Download artifacts
+        uses: actions/download-artifact@v2
+        with:
+          name: test-output
+          path: downloaded-artifact # Path to download the artifact
+
+      - name: Display downloaded artifact content
+        run: cat downloaded-artifact/test_output.txt # Display the content of the downloaded artifact
             echo "ERROR: File 'main.py' not found."
             exit 1
           fi
