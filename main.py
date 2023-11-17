@@ -35,6 +35,7 @@ for test_case in entity_test_cases:
     print(entity.name)
     print(entity.description)
 # These lines of code test the Entity class by creating instances of the class using the test cases and printing their attributes.
+# These test cases are used to test the Kerneltuple_ class by creating instances of the class and printing their attributes.
 kernel_tuple_test_cases = [
     {
         'inode': 'some_inode_value',
