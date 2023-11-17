@@ -49,3 +49,9 @@ class InternalHandlerError(ErrorHandler):
 
     def handle_error(self):
         logging.error("InternalHandlerError: " + self.message)
+class InternalHandlerError(ErrorHandler):
+    def __init__(self):
+        super().__init__("Internal Handler Error: Uncaught exception")
+
+    def handle_error(self):
+        logging.error("InternalHandlerError: " + self.message)
