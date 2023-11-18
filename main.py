@@ -2,7 +2,9 @@ import sys
 import threading
 import traceback
 
-from app.classd.classdef import Entity_
+
+from app.classd.classdef import Entity_, Kerneltuple_
+
 
 entity_test_cases = [
     {"name": "Entity 1", "description": "Description 1"},
@@ -48,5 +50,3 @@ kernel_tuple_test_cases = [
         "mtime": "some_mtime_value",
         "atime": "some_atime_value",
     },
-]
-# Remove the function "ktest_case" as it is not a CLI.
