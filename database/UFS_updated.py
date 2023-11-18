@@ -21,6 +21,26 @@ class UnixFilesystem(Kerneltuple_, Entity_):
     atime (int): The access time of the filesystem.
     """
 
+    """
+    Module description goes here.
+    """
+    The UnixFilesystem class represents a Unix filesystem.
+
+    Attributes:
+    inode (int): The inode of the filesystem.
+    pathname (str): The pathname of the filesystem.
+    filetype (str): The type of the filesystem.
+    permissions (str): The permissions of the filesystem.
+    owner (str): The owner of the filesystem.
+    group_id (str): The group ID of the filesystem.
+    PID (int): The PID of the filesystem.
+    unit_file (str): The unit file of the filesystem.
+    unit_file_addr (str): The address of the unit file.
+    size (int): The size of the filesystem.
+    mtime (int): The modification time of the filesystem.
+    atime (int): The access time of the filesystem.
+    """
+
     def __init__(
         self,
         inode,
@@ -65,6 +85,16 @@ class UnixFilesystem(Kerneltuple_, Entity_):
         self.size = size
         self.mtime = mtime
         self.atime = atime
+        
+        def __str__(self):
+        """
+        Returns a string representation of the UnixFilesystem object.
+        
+        Returns:
+        str: A string representation of the UnixFilesystem object.
+        """
+        return f"{self.inode}: {self.pathname}"
+        super().__init__(Kerneltuple_, "Unix filesystem")
 
     def __str__(self):
         """
