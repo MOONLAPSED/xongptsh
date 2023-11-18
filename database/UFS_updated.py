@@ -1,7 +1,8 @@
+from app.classd.classdef_updated import Entity_
 from main import Kerneltuple_
 
 
-class UnixFilesystem(Kerneltuple_):
+class UnixFilesystem(Kerneltuple_, Entity_):
     """
     The UnixFilesystem class represents a Unix filesystem.
 
@@ -19,6 +20,7 @@ class UnixFilesystem(Kerneltuple_):
     mtime (int): The modification time of the filesystem.
     atime (int): The access time of the filesystem.
     """
+
     def __init__(
         self,
         inode,
@@ -51,7 +53,6 @@ class UnixFilesystem(Kerneltuple_):
         mtime (int): The modification time of the filesystem.
         atime (int): The access time of the filesystem.
         """
-        super().__init__(Kerneltuple_, "Unix filesystem")
         self.inode = inode
         self.pathname = pathname
         self.filetype = filetype
@@ -73,3 +74,4 @@ class UnixFilesystem(Kerneltuple_):
         str: A string representation of the UnixFilesystem object.
         """
         return f"{self.inode}: {self.pathname}"
+        super().__init__(Kerneltuple_, "Unix filesystem")
