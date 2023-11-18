@@ -98,14 +98,14 @@ class UnixFilesystem(Kerneltuple_, Entity_):
         self.atime = atime
         
         def __str__(self):
-        """
-        Returns a string representation of the UnixFilesystem object.
+            """
+            Returns a string representation of the UnixFilesystem object.
         
-        Returns:
-        str: A string representation of the UnixFilesystem object.
-        """
-        return f"{self.inode}: {self.pathname}"
-        super().__init__(Kerneltuple_, "Unix filesystem")
+            Returns:
+            str: A string representation of the UnixFilesystem object.
+            """
+            return f"{self.inode}: {self.pathname}"
+            super().__init__(Kerneltuple_, "Unix filesystem")
 
     def __str__(self):
         """
