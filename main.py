@@ -2,7 +2,9 @@ import sys
 import threading
 import traceback
 
+
 from app.classd.classdef import Entity_, Kerneltuple_
+
 
 entity_test_cases = [
     {"name": "Entity 1", "description": "Description 1"},
@@ -48,19 +50,3 @@ kernel_tuple_test_cases = [
         "mtime": "some_mtime_value",
         "atime": "some_atime_value",
     },
-]
-
-
-def ktest_case(self):
-    """
-    Performs a test case for the Kerneltuple_ class.
-
-    This function creates a Kerneltuple_ object using the provided test case data and prints its string representation.
-    It demonstrates the usage of the Kerneltuple_ class and its initialization with different attribute values.
-
-    Returns:
-    None
-    """
-    for ktest_case in kernel_tuple_test_cases:
-        ktuple = Kerneltuple_(**ktest_case)
-        print(ktuple)
